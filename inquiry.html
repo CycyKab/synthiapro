@@ -1083,22 +1083,71 @@ input, textarea, select, button {
 
 @media (max-width:768px){ .hero-glass-container, .inquiry-hero-glass, .hero-bg { backdrop-filter:none !important; box-shadow:none !important; } }
 
-/* FINAL CTA overrides */
-.form-final-cta { width:96%; max-width:920px; margin:16px auto; box-sizing:border-box; text-align:center; }
-.final-cta-content{ display:block; text-align:center; max-width:920px; margin:0 auto; padding:0 8px; box-sizing:border-box; }
-.final-cta-text{ display:block; margin:0 auto 8px; max-width:760px; white-space:normal; word-break:break-word; hyphens:auto; line-height:1.55; font-size:1rem; }
-.final-cta-actions{ display:flex; justify-content:center; margin-top:8px; }
-.submit-inquiry-btn{ min-width:160px; padding:10px 18px; }
-@media (max-width:480px) { .submit-inquiry-btn{ width:100%; } .final-cta-text{ max-width:88vw; } }
+/* Make final CTA a square card, center content, keep text size */
+.form-final-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 18px 0;
+  box-sizing: border-box;
+}
 
-/* Ensure inputs are full width */
-#inquiryForm, #detailedInquiryForm{ display:flex; flex-direction:column; gap:12px; }
-#inquiryForm input, #inquiryForm textarea, #detailedInquiryForm input, #detailedInquiryForm textarea{ width:100%; box-sizing:border-box; min-width:0; }
+/* The square card */
+.final-cta-content {
+  width: clamp(240px, 34vw, 420px);   /* responsive width */
+  aspect-ratio: 1 / 1;                /* keep square */
+  max-width: 420px;
+  background: var(--bg-glass);        /* keep your glass look */
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(40px); /* optional */
+  backdrop-filter: blur(40px);
+}
 
-/* Overlay safety */
-.mobile-nav, .quote-pup, .emailjs-modal { pointer-events:none; visibility:hidden; opacity:0; }
-.mobile-nav.active, .quote-pup.active, .emailjs-modal.show { pointer-events:auto; visibility:visible; opacity:1; }
+/* Paragraph inside the square: normal readable flow */
+.final-cta-text {
+  margin: 0 6px 14px;
+  font-size: 1rem;            /* keep normal reading size */
+  line-height: 1.45;
+  max-width: 88%;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+}
 
+/* Button: keep centered and visible */
+.final-cta-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.submit-inquiry-btn {
+  min-width: 140px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+}
+
+/* On very small screens, avoid forcing a tall square — use stacked layout */
+@media (max-width: 420px) {
+  .final-cta-content {
+    width: calc(100% - 32px);
+    aspect-ratio: auto;
+    height: auto;
+    padding: 14px;
+    border-radius: 12px;
+  }
+  .final-cta-text { font-size: 0.98rem; }
+  .submit-inquiry-btn { width: 100%; }
+}
 
 </style>
 </head>
@@ -1883,6 +1932,28 @@ document.addEventListener('DOMContentLoaded', () => {
   
   console.log('Inquiry page initialization complete');
 });
+
+
+(function ensureSquareFinalCta() {
+  const el = () => document.querySelector('.final-cta-content');
+  function update() {
+    const node = el();
+    if (!node) return;
+    const vw = window.innerWidth;
+    if (vw > 420) {
+      // set height equal to width
+      node.style.height = node.offsetWidth + 'px';
+    } else {
+      node.style.height = 'auto';
+    }
+  }
+  // run now and on resize/orientation
+  window.addEventListener('load', update);
+  window.addEventListener('resize', update);
+  window.addEventListener('orientationchange', update);
+  // also recalc after fonts/images load
+  window.addEventListener('DOMContentLoaded', update);
+})();
 </script>
 </body>
 </html>
