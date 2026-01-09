@@ -89,6 +89,32 @@
   --navbar-height: 70px;
 }
 
+/* 1) CSS: offset content for fixed navbar */
+/* default navbar height for desktop/mobile fallback */
+:root {
+  --navbar-height: 72px; /* fallback, adjust if your navbar is taller */
+}
+
+/* Use scroll-padding so anchors and scrollIntoView stop below the navbar */
+html {
+  scroll-padding-top: calc(var(--navbar-height) + 12px); /* 12px breathing room */
+}
+
+/* Give the first visible section some top padding (works for non-anchor loads) */
+.page .section:first-of-type,
+.page > :first-child {
+  padding-top: calc(var(--navbar-height) + 12px);
+}
+
+/* For anchors themselves (if you have <h2 id="..."> targets), add scroll-margin-top */
+[id] {
+  scroll-margin-top: calc(var(--navbar-height) + 12px);
+}
+
+/* Narrow devices — reduce heavy paddings if needed */
+@media (max-width: 768px) {
+  :root { --navbar-height: 64px; } /* or measure via JS */
+}
 
 /* Dark Mode Luxury */
 .dark-mode {
@@ -1933,7 +1959,36 @@ html.menu-open, body.menu-open {
   -webkit-overflow-scrolling: touch !important;
 }
 
+/* Prevent hidden overlays from intercepting taps */
+.overlay-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none !important; /* critical */
+}
 
+/* Example explicit rules for your components */
+.mobile-nav { /* default hidden state should use overlay-hidden class */
+  pointer-events: none; /* safety default */
+  visibility: hidden;
+}
+.mobile-nav.active { /* when open */
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0);
+  /* keep your existing styles (overflow, -webkit-overflow-scrolling, etc) */
+}
+
+.quote-pup, .emailjs-modal {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.quote-pup.active, .emailjs-modal.show {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
 </style>
 </head>
 
@@ -3578,6 +3633,22 @@ closeMobileMenu.addEventListener("click", () => {
   document.body.classList.remove("menu-open");
 });
 
+// Run in console to log the element under each touch or mouse click
+(function(){
+  function report(x,y, label){
+    const el = document.elementFromPoint(x,y);
+    console.log(label, {x,y, tag: el && el.tagName, id: el && el.id, cls: el && el.className, el});
+  }
+  document.addEventListener('touchstart', e => {
+    const t = e.touches[0];
+    report(t.clientX, t.clientY, 'touchstart');
+  }, {passive:true});
+  document.addEventListener('mousedown', e => {
+    report(e.clientX, e.clientY, 'mousedown');
+  }, true);
+})();
+
+
 (function setVh() {
   function updateVh() {
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
@@ -3585,6 +3656,60 @@ closeMobileMenu.addEventListener("click", () => {
   updateVh();
   window.addEventListener('resize', updateVh);
 })();
-</script>
+
+function updateNavbarHeightVar() {
+  const nav = document.querySelector('.navbar') || document.querySelector('.inquiry-navbar') || document.querySelector('header');
+  if (!nav) return;
+  const rect = nav.getBoundingClientRect();
+  const height = Math.ceil(rect.height);
+  document.documentElement.style.setProperty('--navbar-height', height + 'px');
+}
+window.addEventListener('load', updateNavbarHeightVar);
+window.addEventListener('resize', updateNavbarHeightVar);
+
+const mobileNav = document.getElementById('mobileNav');
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const mobileNavClose = document.getElementById('closeMobileMenu');
+
+function openMobileNav(){
+  mobileNav.classList.remove('overlay-hidden');
+  mobileNav.classList.add('active');
+  lockBodyScroll(); // your existing scroll-lock
+  // ensure pup isn't intercepting clicks
+  document.querySelectorAll('.quote-pup, .emailjs-modal').forEach(el => el.classList.add('overlay-hidden'));
+}
+
+function closeMobileNav(){
+  mobileNav.classList.remove('active');
+  mobileNav.classList.add('overlay-hidden');
+  unlockBodyScroll();
+}
+
+mobileMenuToggle?.addEventListener('click', e => { e.stopPropagation(); openMobileNav(); });
+mobileNavClose?.addEventListener('click', e => { e.stopPropagation(); closeMobileNav(); });
+
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('mobileNav');
+  const toggle = document.getElementById('mobileMenuToggle');
+  if (!nav || !nav.classList.contains('active')) return;
+
+  // If click is inside nav or on the toggle, ignore
+  if (nav.contains(e.target) || (toggle && toggle.contains(e.target))) return;
+
+  // otherwise close
+  closeMobileNav();
+});
+
+function logAncestors(el){
+  while(el){
+    const s = getComputedStyle(el);
+    console.log(el.tagName, el.id || '', el.className || '', 'transform=', s.transform, 'zIndex=', s.zIndex);
+    el = el.parentElement;
+  }
+}
+const el = document.elementFromPoint(100,200); // replace with coordinates
+logAncestors(el);
+
+</script> 
 </body>
 </html>
