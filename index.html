@@ -147,57 +147,88 @@ html {
   scroll-padding-top: calc(var(--navbar-height) + var(--navbar-gap));
 }
 
-/* Homepage hero adjustments (prevent hero content from overlapping navbar on small viewports) */
+/* ADD into your existing <style> block (HEAD). 
+   If you've already added previous overlay/nav CSS, just append the hero section below. */
+
+/* ===== Hero card responsive tuning (phones & tablets) ===== */
+:root {
+  --hero-max-mobile-height: 68vh;
+  --hero-mobile-padding: 18px;
+}
+
+/* Hero adjustments for tablets */
 @media (max-width: 1024px) {
   .hero {
-    /* reduce fixed min-height on mobile so it doesn't push overlay awkwardly */
+    padding-top: calc(var(--navbar-height, 72px) + 18px);
+    padding-bottom: 28px;
     min-height: auto;
-    padding-top: calc(var(--navbar-height) + 20px);
-    padding-bottom: 48px;
   }
 
-  /* Instead of absolute centering for the glass card, stack it naturally */
   .hero-glass-container {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 92%;
+    width: 94%;
     max-width: 720px;
-    margin: calc(var(--navbar-height) + 18px) auto 32px auto;
-    height: auto;
-    min-height: 220px;
-    padding: 20px;
+    margin: calc(var(--navbar-height, 72px) + 14px) auto 22px auto;
+    height: auto !important;
+    min-height: 200px;
+    max-height: var(--hero-max-mobile-height);
+    padding: var(--hero-mobile-padding);
     box-sizing: border-box;
     display: block;
     align-items: stretch;
     justify-content: flex-start;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-glass-content { padding: 8px 0; }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 3.8vw, 1.25rem);
+    margin-bottom: 14px;
   }
 
   .hero-bg {
-    /* optionally hide or scale background image to save paint and avoid overlap */
-    height: 40vh;
-    min-height: 160px;
+    height: 36vh;
+    min-height: 140px;
     background-position: center top;
   }
 }
 
-/* Stronger mobile rules for small phones */
-@media (max-width: 768px) {
+/* Stronger constraints for small phones */
+@media (max-width: 420px) {
+  :root { --hero-max-mobile-height: 62vh; --hero-mobile-padding: 14px; }
+
   .hero-glass-container {
-    padding: 18px;
-    margin-top: calc(var(--navbar-height) + 14px);
-    border-radius: 14px;
+    width: 96%;
+    max-width: 640px;
+    margin-top: calc(var(--navbar-height, 64px) + 12px);
+    min-height: 180px;
+    padding: var(--hero-mobile-padding);
+    border-radius: 12px;
   }
 
-  /* Reduce heavy visual effects on low widths for performance */
-  .hero-glass-container,
-  .hero-bg {
+  .hero-title { font-size: clamp(1.6rem, 7.2vw, 2.4rem); }
+  .hero-subtitle { font-size: 1rem; }
+
+  .hero-glass-container, .hero-bg {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
   }
 }
+
+/* Keep inner content scrollable on small screens */
+.hero-glass-container { overflow-y: auto; -webkit-overflow-scrolling: touch; }
 * {
   margin: 0;
   padding: 0;
@@ -3792,6 +3823,28 @@ logAncestors(el);
   window.addEventListener('resize', update);
   window.addEventListener('orientationchange', update);
 })();
+
+
+// Optional: further reduce hero height if viewport is especially short
+(function tuneHeroForMobile() {
+  function adjust() {
+    const heroGlass = document.querySelector('.hero-glass-container');
+    if (!heroGlass) return;
+
+    const vh = window.innerHeight;
+    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')) || 64;
+    const safety = 80; // extra space for header & breathing room
+    const maxAvailable = Math.max(vh - navH - safety, Math.floor(vh * 0.5));
+    // Keep heroGlass maxHeight to the lesser of the CSS var and available space:
+    const cssMax = parseInt(getComputedStyle(heroGlass).maxHeight) || (vh * 0.68);
+    const appliedMax = Math.min(cssMax, maxAvailable);
+    heroGlass.style.maxHeight = appliedMax + 'px';
+  }
+  window.addEventListener('load', adjust);
+  window.addEventListener('resize', adjust);
+  window.addEventListener('orientationchange', adjust);
+})();
+
 </script> 
 </body>
 </html>

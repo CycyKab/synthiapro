@@ -104,6 +104,47 @@
   --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.4);
 }
 
+/* ADD into inquiry.html <style> block:
+   (only the inquiry-specific responsive rules — keep the global --vh/--navbar-height script if already present) */
+
+:root {
+  --navbar-height: 72px;
+  --navbar-gap: 12px;
+}
+
+/* ensure content displays below fixed inquiry navbar */
+html { scroll-padding-top: calc(var(--navbar-height) + var(--navbar-gap)); }
+
+.inquiry-hero {
+  padding-top: calc(var(--navbar-height) + 20px);
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+.inquiry-hero-glass {
+  margin-top: 6px;
+  padding: 20px;
+  width: 96%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+/* tighten thank-you / final sections */
+.inquiry-hero-glass .section,
+.inquiry-hero-glass .thank-you,
+#thankyou,
+.inquiry-content-end {
+  padding-bottom: 18px;
+  padding-top: 12px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .inquiry-hero-glass { padding: 16px; margin-top: calc(var(--navbar-height) + 12px); border-radius: 12px; }
+  .inquiry-hero, .inquiry-hero-glass { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; }
+}
+
 * {
   margin: 0;
   padding: 0;
