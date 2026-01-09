@@ -107,43 +107,52 @@
 /* ADD into inquiry.html <style> block:
    (only the inquiry-specific responsive rules — keep the global --vh/--navbar-height script if already present) */
 
+/* Paste into the existing <style> block (HEAD) in inquiry.html.
+   These rules lower popups' z-index (when appropriate) and raise the inquiry final CTA
+   so it is visible and receives taps on mobile. They also ensure hidden overlays do not intercept clicks. */
+
 :root {
   --navbar-height: 72px;
   --navbar-gap: 12px;
 }
 
-/* ensure content displays below fixed inquiry navbar */
+/* Keep anchors below fixed inquiry navbar */
 html { scroll-padding-top: calc(var(--navbar-height) + var(--navbar-gap)); }
 
-.inquiry-hero {
-  padding-top: calc(var(--navbar-height) + 20px);
-  padding-left: 12px;
-  padding-right: 12px;
-  box-sizing: border-box;
+/* Prevent hidden overlays capturing taps */
+.overlay-hidden { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+
+/* Ensure transient overlays start non-interactive */
+.mobile-nav, .quote-pup, .emailjs-modal {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .22s ease, visibility .12s linear;
 }
 
-.inquiry-hero-glass {
-  margin-top: 6px;
-  padding: 20px;
-  width: 96%;
-  max-width: 900px;
-  box-sizing: border-box;
+/* When active they are interactive */
+.mobile-nav.active, .quote-pup.active, .emailjs-modal.show {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
 }
 
-/* tighten thank-you / final sections */
-.inquiry-hero-glass .section,
-.inquiry-hero-glass .thank-you,
-#thankyou,
-.inquiry-content-end {
-  padding-bottom: 18px;
-  padding-top: 12px;
-  font-size: 0.95rem;
+/* Make final CTA area sit above pups but below full-screen modals */
+.inquiry-hero-glass { z-index: 1040; position: relative; }
+.inquiry-hero-glass .cta-button,
+.inquiry-hero-glass .final-cta,
+.inquiry-content-end .cta-button {
+  position: relative;
+  z-index: 1055; /* high enough to receive taps */
+  pointer-events: auto;
 }
 
+/* Reduce large paddings for final section on mobile */
 @media (max-width: 768px) {
-  .inquiry-hero-glass { padding: 16px; margin-top: calc(var(--navbar-height) + 12px); border-radius: 12px; }
-  .inquiry-hero, .inquiry-hero-glass { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; }
+  .inquiry-hero-glass { padding: 14px; margin-top: calc(var(--navbar-height) + 12px); }
+  .inquiry-hero-glass .section, .inquiry-content-end { padding: 10px 6px; font-size: 0.95rem; }
 }
+
 
 * {
   margin: 0;

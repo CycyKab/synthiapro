@@ -95,6 +95,15 @@
   --navbar-height: 72px; /* fallback, adjust if your navbar is taller */
 }
 
+:root {
+  --hero-min-width: 280px;
+  --hero-max-width: 720px;
+  --hero-mobile-max-vh: 72vh; /* cap on mobile so the card never exceeds the viewport */
+  --hero-padding-desktop: 48px;
+  --hero-padding-mobile: 16px;
+}
+
+
 /* Use scroll-padding so anchors and scrollIntoView stop below the navbar */
 html {
   scroll-padding-top: calc(var(--navbar-height) + 12px); /* 12px breathing room */
@@ -164,25 +173,97 @@ html {
     min-height: auto;
   }
 
+.hero-glass-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(360px, 48vw, 720px);
+  max-width: 720px;
+  height: min(60vh, 720px);
+  min-height: 300px;
+  padding: 48px;
+  box-sizing: border-box;
+  background: var(--bg-glass);
+  backdrop-filter: blur(60px) saturate(200%);
+  -webkit-backdrop-filter: blur(60px) saturate(200%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  z-index: 2;
+  box-shadow:
+    0 20px 60px rgba(58, 53, 46, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden; /* desktop: keep visual cropping */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.28s ease;
+}
+/* Tablet / small desktop: change to flowing layout, cap height, allow internal scroll */
+@media (max-width: 1024px) {
   .hero-glass-container {
+    /* Flow in document, so it won't overlap fixed header */
     position: relative !important;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 94%;
-    max-width: 720px;
-    margin: calc(var(--navbar-height, 72px) + 14px) auto 22px auto;
-    height: auto !important;
+
+    width: clamp(300px, 92vw, 680px);
+    max-width: 92%;
+    margin: calc(var(--navbar-height, 72px) + 14px) auto 24px auto;
+    padding: clamp(16px, 3.2vw, 28px);
     min-height: 200px;
-    max-height: var(--hero-max-mobile-height);
-    padding: var(--hero-mobile-padding);
-    box-sizing: border-box;
-    display: block;
-    align-items: stretch;
-    justify-content: flex-start;
-    overflow: auto;
+    height: auto;
+    /* Use dynamic vh if set by JS, otherwise fallback to 72vh */
+    max-height: min(calc(var(--vh, 1vh) * 72), 760px);
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    box-shadow: 0 14px 40px rgba(58,53,46,0.12);
   }
+
+  .hero-glass-container .hero-glass-content {
+    padding-top: 6px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    margin-bottom: 12px;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 3.8vw, 1.25rem);
+    margin-bottom: 14px;
+  }
+}
+
+/* Small phones: stronger caps, reduced padding & effects for performance */
+@media (max-width: 420px) {
+  :root { --hero-mobile-max-vh: 62vh; }
+
+  .hero-glass-container {
+    width: clamp(280px, 96vw, 640px);
+    margin-top: calc(var(--navbar-height, 64px) + 10px);
+    padding: 14px;
+    min-height: 160px;
+    /* limit height to avoid pushing under navbar/address bar */
+    max-height: calc(var(--vh, 1vh) * 62);
+    border-radius: 12px;
+    box-shadow: none; /* reduce paint cost on low-end devices */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .hero-glass-container .hero-glass-content { padding: 6px 0; }
+
+  .hero-title { font-size: clamp(1.4rem, 8vw, 2.2rem); }
+  .hero-subtitle { font-size: clamp(0.95rem, 4.2vw, 1.1rem); }
+}
+
+.hero-glass-container .hero-glass-content {
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0; /* keep spacing controlled by the container */
+}
 
   .hero-glass-content { padding: 8px 0; }
 
@@ -3743,23 +3824,28 @@ closeMobileMenu.addEventListener("click", () => {
 })();
 
 
-(function setVh() {
+(function() {
+  // set --vh to account for mobile browser UI
   function updateVh() {
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
   }
   updateVh();
   window.addEventListener('resize', updateVh);
+  window.addEventListener('orientationchange', updateVh);
+
+  // set --navbar-height (used by hero CSS margin-top when it flows)
+  function updateNavbarHeight() {
+    const nav = document.querySelector('.inquiry-navbar') || document.querySelector('.navbar') || document.querySelector('header');
+    if (!nav) return;
+    const h = Math.ceil(nav.getBoundingClientRect().height) || 72;
+    document.documentElement.style.setProperty('--navbar-height', h + 'px');
+  }
+  updateNavbarHeight();
+  window.addEventListener('load', updateNavbarHeight);
+  window.addEventListener('resize', updateNavbarHeight);
+  window.addEventListener('orientationchange', updateNavbarHeight);
 })();
 
-function updateNavbarHeightVar() {
-  const nav = document.querySelector('.navbar') || document.querySelector('.inquiry-navbar') || document.querySelector('header');
-  if (!nav) return;
-  const rect = nav.getBoundingClientRect();
-  const height = Math.ceil(rect.height);
-  document.documentElement.style.setProperty('--navbar-height', height + 'px');
-}
-window.addEventListener('load', updateNavbarHeightVar);
-window.addEventListener('resize', updateNavbarHeightVar);
 
 const mobileNav = document.getElementById('mobileNav');
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
