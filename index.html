@@ -1,0 +1,3390 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO -->
+<title>Synthia Pro | Bilingual Virtual Assistant</title>
+<meta name="description" content="Professional bilingual VA offering tech systems, automation, and administrative excellence for visionary entrepreneurs.">
+<meta name="author" content="Synthia Kabwe">
+
+<!-- Apple/VisionOS Style Meta -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script><style>
+/* ======================================================
+   LUXURY BROWN/BEIGE DESIGN SYSTEM
+====================================================== */
+:root {
+  /* Luxury Color Palette */
+  --color-cream: #faf8f5;
+  --color-ivory: #f6f3ef;
+  --color-beige: #e8e2d8;
+  --color-taupe: #d4c9bb;
+  --color-sand: #c6b8a4;
+  --color-clay: #b8a58f;
+  --color-cocoa: #9c8b78;
+  --color-mocha: #7a6b5a;
+  --color-chocolate: #9b5d0d;
+  --color-charcoal: #3a352e;
+  --color-onyx: #1a1714;
+  
+  /* Glass Effects */
+  --glass-bg: rgba(250, 248, 245, 0.75);
+  --glass-border: rgba(156, 139, 120, 0.25);
+  --glass-shadow: 0 8px 32px rgba(58, 53, 46, 0.08);
+  --glass-blur: blur(30px) saturate(180%);
+  
+  /* Functional Colors */
+  --bg-primary: var(--color-cream);
+  --bg-secondary: var(--color-ivory);
+  --bg-glass: var(--glass-bg);
+  --border-light: rgba(156, 139, 120, 0.15);
+  --border-medium: rgba(156, 139, 120, 0.25);
+  --text-primary: var(--color-onyx);
+  --text-secondary: var(--color-chocolate);
+  --text-tertiary: var(--color-mocha);
+  --accent-primary: var(--color-cocoa);
+  --accent-gold: #b8a58f;
+  --gradient-primary: linear-gradient(135deg, #c6b8a4, #9c8b78);
+  --gradient-gold: linear-gradient(135deg, #d4c9bb, #b8a58f);
+  
+  /* Luxury Spacing */
+  --spacing-xs: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 36px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+  --spacing-4xl: 128px;
+  
+  /* Luxury Radii */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-xl: 44px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 20px rgba(58, 53, 46, 0.05);
+  --shadow-md: 0 12px 40px rgba(58, 53, 46, 0.08);
+  --shadow-lg: 0 24px 80px rgba(58, 53, 46, 0.12);
+  
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-slow: 0.6s;
+  --duration-medium: 0.4s;
+  --duration-fast: 0.2s;
+}
+
+/* Dark Mode Luxury */
+.dark-mode {
+  --glass-bg: rgba(26, 23, 20, 0.85);
+  --glass-border: rgba(184, 165, 143, 0.25);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  
+  --bg-primary: var(--color-onyx);
+  --bg-secondary: var(--color-charcoal);
+  --bg-glass: var(--glass-bg);
+  --border-light: rgba(184, 165, 143, 0.15);
+  --border-medium: rgba(184, 165, 143, 0.25);
+  --text-primary: var(--color-ivory);
+  --text-secondary: var(--color-beige);
+  --text-tertiary: var(--color-taupe);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--duration-medium) ease, color var(--duration-medium) ease;
+}
+
+/* ======================================================
+   LUXURY MARQUEE STRIP
+====================================================== */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(148, 110, 67, 0.9), rgba(209, 174, 133, 0.9));
+  padding: var(--spacing-sm) 0;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  border-bottom: 1px solid rgba(184, 165, 143, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-luxury 30s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--spacing-2xl);
+  color: var(--color-charcoal);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.marquee-item .luxury-dot {
+  margin-right: var(--spacing-sm);
+  font-size: 0.6rem;
+  opacity: 0.8;
+}
+
+@keyframes marquee-luxury {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ======================================================
+   ENHANCED GLASS NAVBAR
+====================================================== */
+.navbar {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 1200px;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: var(--glass-shadow);
+  transition: all var(--duration-medium) var(--ease-out);
+  color: var(--accent-gold);
+}
+
+.navbar.scrolled {
+  padding: var(--spacing-xs) var(--spacing-lg);
+  top: 30px;
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+  border-color: rgba(156, 139, 120, 0.3);
+}
+
+.nav-brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all var(--duration-fast) ease;
+  position: relative;
+  padding: var(--spacing-xs) 0;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  animation: navUnderline 0.6s var(--ease-out) forwards;
+}
+
+@keyframes navUnderline {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.nav-controls {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.control-btn {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  letter-spacing: 0.5px;
+}
+
+.control-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-gold);
+  background: rgba(184, 165, 143, 0.1);
+}
+
+/* ======================================================
+   PREMIUM GLASS HERO SECTION - CENTERED
+====================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 140px; /* Augmenté pour laisser plus d'espace */
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-image: url('assets/photo1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.4) contrast(1.1);
+  will-change: transform;
+  z-index: 1;
+}
+
+.hero-glass-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  height: 60vh;
+  min-height: 300px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(60px) saturate(200%);
+  -webkit-backdrop-filter: blur(60px) saturate(200%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  z-index: 2;
+  box-shadow: 
+    0 20px 60px rgba(58, 53, 46, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-glass-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(184, 165, 143, 0.3), 
+    transparent
+  );
+  z-index: 3;
+}
+
+.hero-glass-content {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-3xl);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: stairIn 1.2s var(--ease-out) 0.3s forwards;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: stairIn 1.2s var(--ease-out) 0.6s forwards;
+}
+
+.hero-cta {
+  margin-top: var(--spacing-2xl);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: stairIn 1.2s var(--ease-out) 0.9s forwards;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: linear-gradient(135deg, rgba(184, 165, 143, 0.9), rgba(156, 139, 120, 0.9));
+  color: var(--color-charcoal);
+  text-decoration: none;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all var(--duration-medium) var(--ease-out);
+  border: 1px solid rgba(184, 165, 143, 0.3);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(184, 165, 143, 0.5);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+@keyframes stairIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================================================
+   SPRING PAGE TRANSITIONS
+====================================================== */
+.page {
+  display: none;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1s var(--ease-spring);
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+}
+
+.section {
+  margin-bottom: var(--spacing-4xl);
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s var(--ease-spring);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* ======================================================
+   INTRODUCTION SECTION WITH GLASS EFFECT
+====================================================== */
+.intro-section {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl);
+  margin-top: var(--spacing-3xl);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--duration-medium) var(--ease-out);
+}
+
+.intro-section:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: 0.3px;
+}
+
+.intro-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ======================================================
+   LUXURY GLASS CARDS
+====================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  transition: all var(--duration-medium) var(--ease-out);
+  box-shadow: var(--glass-shadow);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
+  transition: transform var(--duration-medium) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--accent-gold);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.card-content {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* ======================================================
+   PRICING CARDS WITH GLASS EFFECT
+====================================================== */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.pricing-card {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  transition: all var(--duration-medium) var(--ease-out);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pricing-card.featured {
+  border-color: var(--accent-gold);
+  background: linear-gradient(145deg, rgba(184, 165, 143, 0.1), rgba(184, 165, 143, 0.05));
+}
+
+.pricing-card.featured::before {
+  content: 'PREMIUM';
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: var(--gradient-gold);
+  color: var(--color-charcoal);
+  padding: var(--spacing-xs) var(--spacing-2xl);
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.pricing-tier {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.pricing-price {
+  font-size: 2.5rem;
+  font-weight: 400;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.5px;
+}
+
+.pricing-features {
+  list-style: none;
+  margin: var(--spacing-xl) 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+  position: relative;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+.pricing-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid var(--glass-border);
+  transition: all var(--duration-medium) ease;
+  width: 100%;
+  margin-top: var(--spacing-lg);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.pricing-cta-button.primary {
+  background: var(--gradient-primary);
+  color: var(--color-charcoal);
+  border: 1px solid rgba(184, 165, 143, 0.3);
+}
+
+.pricing-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+}
+
+.pricing-cta-button.primary:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(184, 165, 143, 0.5);
+}
+
+.pricing-disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: var(--spacing-sm);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Modal pour les devis */
+.quote-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 23, 20, 0.95);
+  backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--duration-medium) ease;
+}
+
+.quote-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quote-modal-content {
+  background: var(--bg-glass);
+  backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  max-width: 500px;
+  width: 90%;
+  transform: translateY(30px);
+  transition: transform var(--duration-medium) ease;
+}
+
+.quote-modal.active .quote-modal-content {
+  transform: translateY(0);
+}
+
+.quote-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.quote-modal-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.quote-modal-close:hover {
+  color: var(--text-primary);
+}
+
+/* ======================================================
+   PROCESS STEPS WITH GLASS
+====================================================== */
+.process-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-medium) var(--ease-out);
+}
+
+.process-step:hover {
+  border-color: var(--border-medium);
+  transform: translateX(4px);
+}
+
+.step-number {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  background: rgba(184, 165, 143, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-lg);
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.step-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* ======================================================
+   FORM STYLING WITH GLASS
+====================================================== */
+.contact-form {
+  max-width: 500px;
+  margin: var(--spacing-3xl) auto 0;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all var(--duration-fast) ease;
+  letter-spacing: 0.3px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: rgba(184, 165, 143, 0.05);
+  box-shadow: 0 0 0 3px rgba(184, 165, 143, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(184, 165, 143, 0.9), rgba(156, 139, 120, 0.9));
+  color: var(--color-charcoal);
+  border: 1px solid var(--glass-border);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-medium) var(--ease-out);
+  width: 100%;
+  box-shadow: var(--glass-shadow);
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(184, 165, 143, 0.5);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* ======================================================
+   LUXURY FOOTER WITH GLASS
+====================================================== */
+.footer {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  margin-top: var(--spacing-4xl);
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.footer-section p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.contact-info {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* ======================================================
+   LANGUAGE TOGGLE LUXURY
+====================================================== */
+.lang-switch {
+  position: relative;
+  width: 80px;
+  height: 36px;
+}
+
+.lang-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.lang-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  transition: .4s var(--ease-out);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.lang-slider:before {
+  position: absolute;
+  content: "EN";
+  height: 28px;
+  width: 28px;
+  left: 4px;
+  bottom: 3px;
+  background: var(--gradient-gold);
+  transition: .4s var(--ease-out);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  letter-spacing: 0.5px;
+}
+
+.lang-switch input:checked + .lang-slider:before {
+  content: "FR";
+  transform: translateX(44px);
+}
+
+.lang-switch input:checked + .lang-slider {
+  background: rgba(184, 165, 143, 0.1);
+}
+
+/* ======================================================
+   RESPONSIVE DESIGN
+====================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    top: 30px;
+    width: 95%;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero {
+    padding-top: 120px;
+  }
+  
+  .hero-glass-container {
+    height: 70vh;
+    min-height: 400px;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+  
+  .hero-glass-content {
+    padding: var(--spacing-xl);
+  }
+  
+  .page-content {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+  
+  .card-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-section {
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .process-step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .step-number {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Mobile Swipe Navigation */
+  body {
+    touch-action: pan-y;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .card:hover,
+  .process-step:hover {
+    transform: none;
+  }
+  
+  .cta-button:hover,
+  .btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE NAVBAR
+====================================================== */
+
+/* Mobile Menu Toggle Button (caché sur desktop) */
+.mobile-menu-toggle {
+  display: none; /* Caché sur desktop */
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all var(--duration-fast) ease;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(184, 165, 143, 0.1);
+  border-color: var(--accent-gold);
+}
+
+/* Navigation pour mobile (caché par défaut) */
+.mobile-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-glass);
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+  z-index: 9999;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  transform: translateX(100%);
+  transition: transform 0.6s var(--ease-out);
+  overflow-y: auto !important;
+  overflow-x: hidden !important; /* IMPORTANT: Cache la scrollbar horizontale */
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box !important; /* Inclut padding dans la largeur */
+}
+
+
+.dark-mode .mobile-nav {
+  background: rgba(26, 23, 20, 0.15) !important;
+  backdrop-filter: blur(60px) saturate(250%) brightness(0.9) !important;
+  -webkit-backdrop-filter: blur(60px) saturate(250%) brightness(0.9) !important;
+  border-left: 1px solid rgba(184, 165, 143, 0.1) !important;
+}
+.mobile-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(184, 165, 143, 0.3), 
+    transparent
+  );
+  z-index: 1;
+}
+
+.mobile-nav-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%; /* Évite le débordement */
+  box-sizing: border-box;
+}
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-3xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.mobile-nav.active {
+  transform: translateX(0);
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-3xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden; /* Cache scroll horizontal */
+  width: 100%;
+  padding-right: 5px; /* Espace pour la scrollbar verticale */
+  box-sizing: border-box;
+}
+
+
+.mobile-nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: color var(--duration-fast) ease;
+  display: block;
+  width: 100%;
+  white-space: nowrap; /* Évite le retour à la ligne */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+
+.mobile-nav-link.active {
+  color: var(--accent-gold) !important;
+  font-weight: 600;
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-gold) !important;
+  transform: translateX(10px);
+  transition: all 0.3s var(--ease-out);
+}
+
+.mobile-nav-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: auto;
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobile-control-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mobile-control-btn:hover {
+  background: rgba(184, 165, 143, 0.1);
+  border-color: var(--accent-gold);
+}
+
+.close-mobile-menu {
+  background: rgba(184, 165, 143, 0.1) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease !important;
+}
+
+.close-mobile-menu:hover {
+  background: rgba(184, 165, 143, 0.2) !important;
+  border-color: var(--accent-gold) !important;
+  transform: rotate(90deg) !important;
+}
+
+/* ======================================================
+   RESPONSIVE BREAKPOINTS
+====================================================== */
+
+@media (max-width: 1024px) {
+  /* Tablet */
+  .navbar {
+    width: 95%;
+    padding: var(--spacing-xs) var(--spacing-lg);
+  }
+  
+  .nav-links {
+    gap: var(--spacing-lg);
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  
+  .hero-glass-container {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile */
+  .navbar {
+    top: 40px;
+    width: 95%;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  
+  /* Cacher les liens de navigation desktop */
+  .nav-links {
+    display: none;
+  }
+  
+  /* Afficher le bouton hamburger */
+  .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ajustements pour mobile */
+  .hero {
+    padding-top: 100px;
+  }
+  
+  .hero-glass-container {
+    height: 400px;
+    margin-top: 40px;
+    width: 95%;
+  }
+  
+  .hero-glass-content {
+    padding: var(--spacing-xl);
+  }
+  
+  .page-content {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+  
+  .card-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-section {
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .process-step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .step-number {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Mobile Swipe Navigation */
+  body {
+    touch-action: pan-y;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small Mobile */
+  .navbar {
+    top: 25px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .nav-brand {
+    font-size: 1rem;
+  }
+  
+  .hero-glass-container {
+    height: 380px;
+    margin-top: 30px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 2.8rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .cta-button {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 0.95rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .card:hover,
+  .process-step:hover {
+    transform: none;
+  }
+  
+  .cta-button:hover,
+  .btn-primary:hover {
+    transform: none;
+  }
+  
+  .mobile-nav-link {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
+.inquiry-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 50px rgba(156, 139, 120, 0.25),
+    0 5px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(184, 165, 143, 0.6);
+}
+
+.inquiry-cta-btn:hover i {
+  transform: translateX(5px);
+}
+
+.inquiry-cta-btn:hover span:last-child {
+  left: 100%;
+}
+
+/* Dark mode adjustments */
+.dark-mode .inquiry-cta-section {
+  background: rgba(26, 23, 20, 0.7);
+  border-color: rgba(184, 165, 143, 0.2);
+}
+
+.dark-mode .inquiry-cta-btn {
+  background: linear-gradient(135deg, 
+    rgba(184, 165, 143, 0.9), 
+    rgba(156, 139, 120, 0.8));
+  color: #1a1714;
+  box-shadow: 
+    0 10px 30px rgba(58, 53, 46, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .inquiry-cta-btn:hover {
+  box-shadow: 
+    0 20px 50px rgba(58, 53, 46, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .inquiry-cta-btn {
+    padding: 16px 28px;
+    font-size: 1rem;
+  }
+  
+  .inquiry-cta-section {
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
+  }
+  
+  .inquiry-cta-section h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Focus state for accessibility */
+.inquiry-cta-btn:focus {
+  outline: 2px solid rgba(184, 165, 143, 0.5);
+  outline-offset: 3px;
+}
+
+/* Loading state (optional) */
+.inquiry-cta-btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.inquiry-cta-btn.loading i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(184, 165, 143, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(184, 165, 143, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(184, 165, 143, 0); }
+}
+
+.contact-form {
+  animation-duration: 2s;
+}
+
+/* ======================================================
+   QUOTE PUP STYLES (Petit popup)
+====================================================== */
+
+.quote-pup {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 320px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 9999;
+  transform: translateY(100px) scale(0.95);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.quote-pup.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.quote-pup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.quote-pup-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.quote-pup-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  line-height: 1;
+}
+
+.quote-pup-close:hover {
+  color: var(--text-primary);
+}
+
+.quote-pup-form .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.quote-pup-form .form-input {
+  font-size: 0.9rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.quote-pup-btn {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-md);
+}
+
+/* Style pour le bouton "flottant" sur mobile */
+.pup-trigger-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--color-charcoal);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 9998;
+  box-shadow: var(--shadow-md);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.pup-trigger-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .quote-pup {
+    width: calc(100% - 40px);
+    bottom: 80px;
+    right: 20px;
+    left: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .pup-trigger-btn {
+    display: flex;
+  }
+}
+
+/* Animation pour attirer l'attention */
+@keyframes floatPup {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.02); }
+}
+
+.quote-pup.pulse {
+  animation: floatPup 3s ease-in-out infinite;
+}
+
+/* Styles pour le bouton en cooldown */
+button[disabled].cooldown-active {
+  position: relative;
+  overflow: hidden;
+}
+
+button[disabled].cooldown-active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Tooltip pour le cooldown */
+[title] {
+  position: relative;
+}
+
+[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-charcoal);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10001;
+  margin-bottom: 5px;
+}
+
+[title]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-charcoal);
+  margin-bottom: -5px;
+  z-index: 10001;
+}
+
+
+
+</style>
+</head>
+
+<body class="light-mode">
+
+<!-- LUXURY MARQUEE STRIP -->
+<div class="marquee-container">
+  <div class="marquee-track">
+    <div class="marquee-item">
+      <span class="luxury-dot">•</span> <span data-en="BOOKING NOW - Limited Availability for January 2026" data-fr="RÉSERVATION OUVERTE - Disponibilité limitée pour Janvier 2026">BOOKING NOW - Limited Availability for January 2026</span>
+    </div>
+    <div class="marquee-item">
+      <span class="luxury-dot">•</span> <span data-en="SPECIAL OFFER: Free Systems Audit with Annual Commitment" data-fr="OFFRE SPÉCIALE : Audit des systèmes gratuit avec engagement annuel">SPECIAL OFFER: Free Systems Audit with Annual Commitment</span>
+    </div>
+    <div class="marquee-item">
+      <span class="luxury-dot">•</span> <span data-en="EXCLUSIVE: Priority Onboarding for January Clients" data-fr="EXCLUSIF : Intégration prioritaire pour les clients de Janvier">EXCLUSIVE: Priority Onboarding for January Clients</span>
+    </div>
+  </div>
+</div>
+
+<!-- ENHANCED GLASS NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">SYNTHIA PRO</div>
+  <div class="nav-links">
+    <a href="#home" class="nav-link active" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="#about" class="nav-link" data-en="About" data-fr="À propos">About</a>
+    <a href="#services" class="nav-link" data-en="Services" data-fr="Services">Services</a>
+    <a href="#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a>
+  </div>
+  <div class="nav-controls">
+    <button class="control-btn" id="themeToggle">
+      <i class="fas fa-adjust"></i>
+      <span data-en="Theme" data-fr="Thème">Theme</span>
+    </button>
+    
+    <label class="lang-switch">
+      <input type="checkbox" id="langToggle">
+      <span class="lang-slider"></span>
+    </label>
+    
+    <!-- BOUTON HAMBURGER -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAVIGATION MENU (caché par défaut) -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-content">
+    <div class="mobile-nav-header">
+      <div class="nav-brand">SYNTHIA PRO</div>
+      <button class="close-mobile-menu" id="closeMobileMenu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-link active" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="#about" class="mobile-nav-link" data-en="About" data-fr="À propos">About</a>
+      <a href="#services" class="mobile-nav-link" data-en="Services" data-fr="Services">Services</a>
+      <a href="#contact" class="mobile-nav-link" data-en="Contact" data-fr="Contact">Contact</a>
+    </div>
+    
+    <div class="mobile-nav-controls">
+      <button class="mobile-control-btn" id="mobileThemeToggle">
+        <i class="fas fa-adjust"></i>
+        <span data-en="Theme" data-fr="Thème">Theme</span>
+      </button>
+      
+      <div class="lang-switch" style="margin: var(--spacing-md) 0;">
+        <input type="checkbox" id="mobileLangToggle">
+        <span class="lang-slider"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+  <!-- PREMIUM GLASS HERO - PROPERLY CENTERED -->
+  <div class="hero">
+    <div class="hero-bg" id="parallax"></div>
+    <div class="hero-glass-container">
+      <div class="hero-glass-content">
+        <h1 class="hero-title" data-en="Synthia Pro" data-fr="Synthia Pro">Synthia Pro</h1>
+        <p class="hero-subtitle" data-en="Bilingual Virtual Assistant" data-fr="Assistante Virtuelle Bilingue">Bilingual Virtual Assistant</p>
+        <div class="hero-cta">
+          <a href="inquiry.html" class="cta-button">
+            <span data-en="Begin Transformation" data-fr="Commencer la Transformation">Begin Transformation</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- INTRODUCTION SECTION -->
+  <div class="page-content">
+    <div class="section">
+      <div class="intro-section">
+        <div class="intro-content">
+          <p class="intro-text" data-en="I help entrepreneurs, small business owners, and busy professionals bring order, clarity, and efficiency to their digital operations. From setting up systems to managing daily tasks, I make sure your business runs smoothly, so you can focus on what truly matters: growth and impact." 
+             data-fr="J'aide les entrepreneurs, propriétaires de petites entreprises et professionnels occupés à apporter de l'ordre, de la clarté et de l'efficacité à leurs opérations numériques. De la mise en place de systèmes à la gestion des tâches quotidiennes, je m'assure que votre entreprise fonctionne sans heurts, afin que vous puissiez vous concentrer sur ce qui compte vraiment : la croissance et l'impact.">
+            I help entrepreneurs, small business owners, and busy professionals bring order, clarity, and efficiency to their digital operations. From setting up systems to managing daily tasks, I make sure your business runs smoothly, so you can focus on what truly matters: growth and impact.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Services -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Core Services" data-fr="Services Principaux">Core Services</h2>
+        <p class="section-subtitle" data-en="Comprehensive solutions for modern businesses" data-fr="Solutions complètes pour les entreprises modernes">Comprehensive solutions for modern businesses</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3 class="card-title" data-en="Administrative Excellence" data-fr="Excellence Administrative">Administrative Excellence</h3>
+          <p class="card-content" data-en="Email and calendar management, meeting scheduling, file organization, and executive coordination." 
+             data-fr="Gestion des emails et calendriers, planification de réunions, organisation des fichiers et coordination exécutive.">
+            Email and calendar management, meeting scheduling, file organization, and executive coordination.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3 class="card-title" data-en="Tech Systems" data-fr="Systèmes Technologiques">Tech Systems</h3>
+          <p class="card-content" data-en="CRM setup, Microsoft 365, workflow automation, Notion/ClickUp implementation, and system optimization." 
+             data-fr="Configuration CRM, Microsoft 365, automatisation des flux de travail, implémentation Notion/ClickUp et optimisation des systèmes.">
+            CRM setup, Microsoft 365, workflow automation, Notion/ClickUp implementation, and system optimization.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="card-title" data-en="Creative Support" data-fr="Support Créatif">Creative Support</h3>
+          <p class="card-content" data-en="Canva design, WordPress, Shopify, Website creation, content creation, English/French translation, and professional communication." 
+             data-fr="Design Canva, WordPress, Shopify, création de Website, création de contenu, traduction anglais/français et communication professionnelle.">
+            Canva design, WordPress, Shopify, Website creation, content creation, English/French translation, and professional communication.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT PAGE -->
+<section id="about" class="page">
+  <div class="page-content">
+    <!-- Introduction -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title" data-en="About Me" data-fr="À propos de moi">About Me</h2>
+        <p class="section-subtitle" data-en="Synthia S. Kabwe · Bilingual VA" data-fr="Synthia S. Kabwe · Assistante Virtuelle Bilingue">Synthia S. Kabwe · Bilingual VA</p>
+      </div>
+      
+      <div class="card">
+        <p class="card-content" data-en="I'm a bilingual (French & English) Tech and Administrative Virtual Assistant with a strong background in Business Information Technology and Digital Systems Management from the University of Johannesburg."
+           data-fr="Je suis une Assistante Virtuelle Technologique et Administrative bilingue (français & anglais) avec une solide formation en Technologies de l'Information des Affaires et Gestion des Systèmes Numériques de l'Université de Johannesburg.">
+          I'm a bilingual (French & English) Tech and Administrative Virtual Assistant with a strong background in Business Information Technology and Digital Systems Management from the University of Johannesburg.
+        </p>
+        <p class="card-content" data-en="I combine technical expertise with business insight to help clients simplify processes, optimize workflows, and stay organized. My approach is calm, professional, and proactive—I don't just complete tasks, I create smart systems that help businesses run better."
+           data-fr="Je combine une expertise technique avec une vision commerciale pour aider les clients à simplifier les processus, optimiser les flux de travail et rester organisés. Mon approche est calme, professionnelle et proactive—je ne me contente pas d'accomplir des tâches, je crée des systèmes intelligents qui aident les entreprises à mieux fonctionner.">
+          I combine technical expertise with business insight to help clients simplify processes, optimize workflows, and stay organized. My approach is calm, professional, and proactive—I don't just complete tasks, I create smart systems that help businesses run better.
+        </p>
+      </div>
+    </div>
+
+    <!-- Education & Skills -->
+    <div class="section">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 class="card-title" data-en="Education" data-fr="Éducation">Education</h3>
+          <p class="card-content">
+            <strong data-en="Diploma in Business IT" data-fr="Diplôme en IT Commercial">Diploma in Business IT</strong><br>
+            <span data-en="University of Johannesburg (2022-2024)" data-fr="Université de Johannesburg (2022-2024)">University of Johannesburg (2022-2024)</span>
+          </p>
+          <p class="card-content">
+            <strong data-en="AI Certificate" data-fr="Certificat en IA">AI Certificate</strong><br>
+            <span data-en="Industry 4.0 Specialization (2024)" data-fr="Spécialisation Industrie 4.0 (2024)">Industry 4.0 Specialization (2024)</span>
+          </p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="card-title" data-en="Key Skills" data-fr="Compétences Clés">Key Skills</h3>
+          <p class="card-content">
+            • <span data-en="Bilingual Communication (EN/FR)" data-fr="Communication bilingue (EN/FR)">Bilingual Communication (EN/FR)</span><br>
+            • <span data-en="Organization & Time Management" data-fr="Organisation & Gestion du temps">Organization & Time Management</span><br>
+            • <span data-en="Tech Systems & Automation" data-fr="Systèmes technologiques & Automatisation">Tech Systems & Automation</span><br>
+            • <span data-en="Creative Problem-Solving" data-fr="Résolution créative de problèmes">Creative Problem-Solving</span><br>
+            • <span data-en="Technical expertise" data-fr="Expertise technique">Technical expertise</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PAGE -->
+<section id="services" class="page">
+  <div class="page-content">
+    <!-- Packages -->
+    <div class="section">
+      
+      <div class="section-header">
+        <br>
+        <h2 class="section-title" data-en="Service Packages" data-fr="Forfaits de Service">Service Packages</h2>
+        <p class="section-subtitle" data-en="Structured plans for every business need" data-fr="Plans structurés pour chaque besoin d'entreprise">Structured plans for every business need</p>
+      </div>
+      
+      <!-- ICI : Déplacez le pricing-grid ici -->
+      <div class="pricing-grid">
+        <!-- Essentials Package -->
+        <div class="pricing-card">
+          <h3 class="pricing-tier" data-en="Essentials" data-fr="Essentiels">Essentials</h3>
+          <div class="pricing-price">
+            <div class="price-label" data-en="Starting from" data-fr="À partir de">Starting from</div>
+            <div class="price-amount">$800</div>
+            <div class="price-note" data-en="/month" data-fr="/mois">/month</div>
+          </div>
+          <p class="card-content" data-en="20 hours/month • Custom quote available" 
+             data-fr="20 heures/mois • Devis personnalisé disponible">
+            20 hours/month • Custom quote available
+          </p>
+          <ul class="pricing-features">
+            <li data-en="Email & Calendar Management" data-fr="Gestion emails & calendrier">Email & Calendar Management</li>
+            <li data-en="Invoice Tracking" data-fr="Suivi des factures">Invoice Tracking</li>
+            <li data-en="Travel Coordination" data-fr="Coordination des voyages">Travel Coordination</li>
+            <li data-en="Light Admin Support" data-fr="Support administratif léger">Light Admin Support</li>
+            <li data-en="Bi-weekly Check-ins" data-fr="Points de contrôle bimensuels">Bi-weekly Check-ins</li>
+          </ul>
+          <button class="pricing-cta-button open-quote-pup" data-package="essentials" data-title="Essentials Package">
+          <span data-en="Get Quick Quote" data-fr="Devis Rapide">Get Quick Quote</span>
+            <i class="fas fa-bolt"></i>
+          </button>
+          <p class="pricing-disclaimer" data-en="*Click for personalized quote" data-fr="*Cliquez pour un devis personnalisé">
+            *Click for personalized quote
+          </p>
+        </div>
+        
+        <!-- Growth Package -->
+        <div class="pricing-card featured">
+          <h3 class="pricing-tier" data-en="Growth" data-fr="Croissance">Growth</h3>
+          <div class="pricing-price">
+            <div class="price-placeholder">
+              <i class="fas fa-handshake" style="color: var(--accent-gold); font-size: 2rem;"></i>
+            </div>
+            <div class="price-label" data-en="Tailored Investment" data-fr="Investissement Personnalisé">Tailored Investment</div>
+          </div>
+          <p class="card-content" data-en="40 hours/month • Personalized package" 
+             data-fr="40 heures/mois • Forfait personnalisé">
+            40 hours/month • Personalized package
+          </p>
+          <ul class="pricing-features">
+            <li data-en="Everything in Essentials" data-fr="Tout dans Essentiels">Everything in Essentials</li>
+            <li data-en="Client Follow-ups" data-fr="Suivi des clients">Client Follow-ups</li>
+            <li data-en="CRM Organization" data-fr="Organisation CRM">CRM Organization</li>
+            <li data-en="Document Management" data-fr="Gestion des documents">Document Management</li>
+            <li data-en="Project Coordination" data-fr="Coordination de projet">Project Coordination</li>
+          </ul>
+          <button class="pricing-cta-button primary open-quote-pup" data-package="growth" data-title="Growth Package">
+            <span data-en="Quick Consultation" data-fr="Consultation Rapide">Quick Consultation</span>
+            <i class="fas fa-calendar-alt"></i>
+          </button>
+        </div>
+        
+        <!-- Executive Package -->
+        <div class="pricing-card">
+          <h3 class="pricing-tier" data-en="Executive" data-fr="Exécutif">Executive</h3>
+          <div class="pricing-price">
+            <div class="price-placeholder">
+              <i class="fas fa-crown" style="color: var(--accent-gold); font-size: 2rem;"></i>
+            </div>
+            <div class="price-label" data-en="Premium Partnership" data-fr="Partenariat Premium">Premium Partnership</div>
+          </div>
+          <p class="card-content" data-en="60+ hours/month • Comprehensive solution" 
+             data-fr="60+ heures/mois • Solution complète">
+            60+ heures/mois • Solution complète
+          </p>
+          <ul class="pricing-features">
+            <li data-en="Everything in Growth" data-fr="Tout dans Croissance">Everything in Growth</li>
+            <li data-en="Inbox Management" data-fr="Gestion de la boîte de réception">Inbox Management</li>
+            <li data-en="Workflow Streamlining" data-fr="Rationalisation des flux de travail">Workflow Streamlining</li>
+            <li data-en="Monthly Reporting" data-fr="Rapports mensuels">Monthly Reporting</li>
+            <li data-en="Process Creation" data-fr="Création de processus">Process Creation</li>
+          </ul>
+          <button class="pricing-cta-button open-quote-pup" data-package="executive" data-title="Executive Package">
+            <span data-en="Quick Discovery Call" data-fr="Appel Découverte Rapide">Quick Discovery Call</span>
+            <i class="fas fa-phone"></i>
+          </button>
+        </div> 
+
+      </div>
+    </div>
+    </div>
+   <!-- CTA Section -->
+    <div class="inquiry-cta-section" style="text-align: center; margin-top: var(--spacing-4xl); padding: var(--spacing-2xl); background: var(--bg-glass); border-radius: var(--radius-xl); border: 1px solid var(--glass-border); backdrop-filter: blur(20px);">
+      <h3 style="margin-bottom: var(--spacing-lg); color: var(--text-primary); font-weight: 500; font-size: 1.5rem;"
+          data-en="Ready for Personalized Support?"
+          data-fr="Prêt pour un Soutien Personnalisé ?">
+        Ready for Personalized Support?
+      </h3>
+      
+      <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xl); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;"
+         data-en="Fill out our detailed inquiry form to get tailored assistance recommendations"
+         data-fr="Remplissez notre formulaire de demande détaillé pour obtenir des recommandations d'assistance personnalisées">
+        Fill out our detailed inquiry form to get tailored assistance recommendations
+      </p>
+      
+      <a href="inquiry.html" class="inquiry-cta-btn" style="
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: linear-gradient(135deg, rgba(184, 165, 143, 0.95), rgba(156, 139, 120, 0.95));
+        color: var(--text-primary);
+        padding: 18px 32px;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.05rem;
+        border: 1px solid rgba(184, 165, 143, 0.4);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 10px 30px rgba(156, 139, 120, 0.15),
+          0 1px 3px rgba(0, 0, 0, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+      ">
+        <span data-en="Fill Detailed Inquiry Form" data-fr="Remplir le Formulaire Détaillé">
+          Fill Detailed Inquiry Form
+        </span>
+        <i class="fas fa-arrow-right" style="
+          transition: transform 0.3s ease;
+          font-size: 0.9em;
+        "></i>
+        
+        <!-- Animated border effect -->
+        <span style="
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.4), 
+            transparent);
+          transition: left 0.7s ease;
+          border-radius: inherit;
+        "></span>
+      </a>
+    </div>
+    
+    <!-- Process Section -->
+    <div class="section">
+      <div class="section-header">
+        <br>
+        <h2 class="section-title" data-en="How It Works" data-fr="Comment ça marche">How It Works</h2>
+        <p class="section-subtitle" data-en="6-step process for seamless collaboration" data-fr="Processus en 6 étapes pour une collaboration fluide">6-step process for seamless collaboration</p>
+      </div>
+      
+      <div class="process-container">
+        <!-- Vos étapes du processus ici -->
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title" data-en="Inquiry Form" data-fr="Formulaire de demande">Inquiry Form</h3>
+            <p class="step-description" data-en="Share your business needs and goals" data-fr="Partagez vos besoins et objectifs commerciaux">Share your business needs and goals</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title" data-en="Discovery Call" data-fr="Appel de découverte">Discovery Call</h3>
+            <p class="step-description" data-en="30-minute video consultation" data-fr="Consultation vidéo de 30 minutes">30-minute video consultation</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title" data-en="Personalized Proposal" data-fr="Proposition personnalisée">Personalized Proposal</h3>
+            <p class="step-description" data-en="Custom plan within 24 hours" data-fr="Plan personnalisé sous 24 heures">Custom plan within 24 hours</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3 class="step-title" data-en="Contract & Onboarding" data-fr="Contrat & Intégration">Contract & Onboarding</h3>
+            <p class="step-description" data-en="Secure signing and setup" data-fr="Signature sécurisée et configuration">Secure signing and setup</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT PAGE -->
+<section id="contact" class="page">
+  <div class="page-content">
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Get Started" data-fr="Commencer">Get Started</h2>
+        <p class="section-subtitle" data-en="Let's transform your business operations" data-fr="Transformons vos opérations commerciales">Let's transform your business operations</p>
+      </div>
+      
+      <div class="contact-form">
+        <form id="inquiryForm">
+  <!-- Add hidden fields -->
+        <input type="hidden" name="to_email" value="synthiapro.va@gmail.com">
+  
+            <div class="form-group">
+            <input type="text" name="from_name" class="form-input" placeholder="Your Name" required data-en-placeholder="Your Name" data-fr-placeholder="Votre Nom">
+          </div>
+          <div class="form-group">
+            <input type="email" name="from_email" class="form-input" placeholder="Email Address" required data-en-placeholder="Email Address" data-fr-placeholder="Adresse Email">
+          </div>
+          <div class="form-group">
+            <select name="service" class="form-input" required>
+              <option value="" data-en="Service Interest" data-fr="Intérêt de service">Service Interest</option>
+              <option value="essentials" data-en="Essentials Plan" data-fr="Forfait Essentiels">Essentials Plan</option>
+              <option value="growth" data-en="Growth Plan" data-fr="Forfait Croissance">Growth Plan</option>
+              <option value="executive" data-en="Executive Plan" data-fr="Forfait Exécutif">Executive Plan</option>
+              <option value="custom" data-en="Custom Service" data-fr="Service Personnalisé">Custom Service</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea name="message" class="form-input" rows="4" placeholder="Tell me about your business goals..." data-en-placeholder="Tell me about your business goals..." data-fr-placeholder="Parlez-moi de vos objectifs commerciaux..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">
+            <span data-en="Submit Inquiry" data-fr="Soumettre la demande">Submit Inquiry</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="card-title" data-en="Contact Info" data-fr="Informations de contact">Contact Info</h3>
+          <p class="card-content">
+            <i class="fas fa-envelope"></i> contact@synthiapro.site<br>
+            <i class="fas fa-phone"></i> +27 72 252 0835<br>
+            <i class="fas fa-globe"></i> <span data-en="Remote Worldwide" data-fr="À distance dans le monde entier">Remote Worldwide</span>
+          </p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 class="card-title" data-en="Vision" data-fr="Vision">Vision</h3>
+          <p class="card-content" data-en="To empower entrepreneurs with seamless admin and tech support, allowing focus on growth, creativity, and impact."
+             data-fr="Autonomiser les entrepreneurs avec un support administratif et technologique fluide, permettant de se concentrer sur la croissance, la créativité et l'impact.">
+            To empower entrepreneurs with seamless admin and tech support, allowing focus on growth, creativity, and impact.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- QUOTE PUP (Petit popup) -->
+<div class="quote-pup" id="quotePup">
+  <div class="quote-pup-header">
+    <h4 class="quote-pup-title" id="pupTitle" data-en="Quick Quote Request" data-fr="Demande Rapide de Devis">Quick Quote Request</h4>
+    <button class="quote-pup-close" id="closePup">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <form class="quote-pup-form" id="pupForm">
+    <input type="hidden" id="pupPackage" name="package">
+    
+    <div class="form-group">
+      <input type="text" id="pupName" name="name" class="form-input" 
+             placeholder="Your Name" required
+             data-en-placeholder="Your Name"
+             data-fr-placeholder="Votre Nom">
+    </div>
+    
+    <div class="form-group">
+      <input type="email" id="pupEmail" name="email" class="form-input"
+             placeholder="Email Address" required
+             data-en-placeholder="Email Address"
+             data-fr-placeholder="Adresse Email">
+    </div>
+    
+    <div class="form-group">
+      <select id="pupHours" name="hours" class="form-input">
+        <option value="" data-en="Hours needed?" data-fr="Heures nécessaires ?">Hours needed?</option>
+        <option value="10-20" data-en="10-20h/month" data-fr="10-20h/mois">10-20h/month</option>
+        <option value="20-30" data-en="20-30h/month" data-fr="20-30h/mois">20-30h/month</option>
+        <option value="30-40" data-en="30-40h/month" data-fr="30-40h/mois">30-40h/month</option>
+        <option value="40+" data-en="40+h/month" data-fr="40+h/mois">40+h/month</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <textarea id="pupMessage" name="message" class="form-input" rows="2"
+                placeholder="Brief description of needs..."
+                data-en-placeholder="Brief description of needs..."
+                data-fr-placeholder="Brève description des besoins..."></textarea>
+    </div>
+    
+    <button type="submit" class="pricing-cta-button primary quote-pup-btn">
+      <span data-en="Send Quick Quote" data-fr="Envoyer le Devis Rapide">Send Quick Quote</span>
+      <i class="fas fa-paper-plane"></i>
+    </button>
+    
+    <p class="pricing-disclaimer" style="margin-top: var(--spacing-sm); font-size: 0.75rem;">
+      <i class="fas fa-shield-alt" style="margin-right: 5px;"></i>
+      <span data-en="We'll respond within 24h" data-fr="Nous répondrons sous 24h">We'll respond within 24h</span>
+    </p>
+  </form>
+</div>
+
+<!-- Bouton flottant pour ouvrir le pup sur mobile -->
+<button class="pup-trigger-btn" id="pupTrigger" title="Request Quote">
+  <i class="fas fa-comment-dollar"></i>
+</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>SYNTHIA PRO</h3>
+      <p data-en="Bilingual virtual assistance for visionary entrepreneurs." data-fr="Assistance virtuelle bilingue pour entrepreneurs visionnaires.">
+        Bilingual virtual assistance for visionary entrepreneurs.
+      </p>
+    </div>
+    
+    <div class="footer-section">
+      <h3 data-en="Navigation" data-fr="Navigation">Navigation</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+        <a href="#home" class="nav-link" style="font-size: 0.9rem;" data-en="Home" data-fr="Accueil">Home</a>
+        <a href="#about" class="nav-link" style="font-size: 0.9rem;" data-en="About" data-fr="À propos">About</a>
+        <a href="#services" class="nav-link" style="font-size: 0.9rem;" data-en="Services" data-fr="Services">Services</a>
+        <a href="#contact" class="nav-link" style="font-size: 0.9rem;" data-en="Contact" data-fr="Contact">Contact</a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3 data-en="Contact" data-fr="Contact">Contact</h3>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> contact@synthiapro.site</p>
+        <p><i class="fas fa-phone"></i> +27 72 252 0835</p>
+        <p><i class="fas fa-check-circle"></i> <span data-en="Available for remote work" data-fr="Disponible pour travail à distance">Available for remote work</span></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2026 Synthia Pro | Synthia S. Kabwe</p>
+  </div>
+</footer>
+<script src="email-config.js"></script>
+<script>
+// ======================================================
+// LUXURY SPA CONTROLLER
+// ======================================================
+
+class LuxurySPA {
+  constructor() {
+    this.currentLang = 'en';
+    this.isDark = false;
+    this.currentPage = 'home';
+    this.touchStartX = 0;
+    this.touchEndX = 0;
+    this.init();
+  }
+
+  init() {
+    // Load saved preferences
+    this.loadPreferences();
+    
+    // Initialize components
+    this.initNavigation();
+    this.initThemeToggle();
+    this.initLanguageToggle();
+    this.initParallax();
+    this.initScrollAnimations();
+    this.initSwipeNavigation();
+    this.initForm();
+    
+    // Set initial state
+    this.showPage(this.currentPage);
+    this.updateLanguage();
+  }
+
+  loadPreferences() {
+    const savedLang = localStorage.getItem('synthia-lang') || 'en';
+    const savedTheme = localStorage.getItem('synthia-theme') || 'light';
+    const savedPage = localStorage.getItem('synthia-page') || 'home';
+    
+    this.currentLang = savedLang;
+    this.isDark = savedTheme === 'dark';
+    this.currentPage = savedPage;
+    
+    if (this.isDark) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+      document.getElementById('themeToggle').querySelector('i').className = 'fas fa-moon';
+    }
+    
+    if (this.currentLang === 'fr') {
+      document.getElementById('langToggle').checked = true;
+    }
+  }
+  
+
+  // ======================================================
+  // SPRING PAGE TRANSITIONS
+  // ======================================================
+  
+  initNavigation() {
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('href').substring(1);
+        this.showPage(target);
+        
+        // Update URL without page reload
+        window.history.pushState({ page: target }, '', `#${target}`);
+      });
+    });
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.page) {
+        this.showPage(e.state.page);
+      }
+    });
+  }
+
+  showPage(pageId) {
+    // Spring transition out current page
+    const currentPage = document.querySelector('.page.active');
+    if (currentPage) {
+      currentPage.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      currentPage.style.opacity = '0';
+      currentPage.style.transform = 'translateX(-100px)';
+      
+      setTimeout(() => {
+        currentPage.classList.remove('active');
+      }, 300);
+    }
+    
+    // Spring transition in new page
+    setTimeout(() => {
+      const newPage = document.getElementById(pageId);
+      if (newPage) {
+        newPage.classList.add('active');
+        newPage.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        newPage.style.opacity = '0';
+        newPage.style.transform = 'translateX(100px)';
+        
+        requestAnimationFrame(() => {
+          newPage.style.opacity = '1';
+          newPage.style.transform = 'translateX(0)';
+        });
+        
+        // Update navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${pageId}`) {
+            link.classList.add('active');
+          }
+        });
+        
+        this.currentPage = pageId;
+        localStorage.setItem('synthia-page', pageId);
+        
+        // Reset scroll position with smooth behavior
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        
+        // Trigger scroll animations for new page
+        setTimeout(() => this.triggerScrollAnimations(), 100);
+      }
+    }, 350);
+  }
+
+
+  // ======================================================
+  // PARALLAX EFFECT
+  // ======================================================
+  
+  initParallax() {
+    const parallax = document.getElementById('parallax');
+    
+    window.addEventListener('scroll', () => {
+      if (!parallax) return;
+      
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      parallax.style.transform = `translate3d(0, ${rate}px, 0)`;
+    });
+  }
+
+  // ======================================================
+  // SECTION REVEAL ANIMATIONS
+  // ======================================================
+  
+  initScrollAnimations() {
+    // Initialize Intersection Observer for section animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Staggered entrance effect
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, entry.target.dataset.delay || 0);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '-50px 0px -50px 0px'
+    });
+    
+    // Observe all sections
+    document.querySelectorAll('.section').forEach((section, index) => {
+      section.dataset.delay = index * 100; // Stagger delay
+      observer.observe(section);
+    });
+    
+    // Trigger initial check
+    this.triggerScrollAnimations();
+  }
+
+  triggerScrollAnimations() {
+    document.querySelectorAll('.section').forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const isVisible = (
+        rect.top <= window.innerHeight * 0.85 &&
+        rect.bottom >= 0
+      );
+      
+      if (isVisible) {
+        setTimeout(() => {
+          section.classList.add('visible');
+        }, section.dataset.delay || 0);
+      }
+    });
+  }
+
+  // ======================================================
+  // THEME TOGGLE
+  // ======================================================
+  
+  initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      this.isDark = !this.isDark;
+      
+      if (this.isDark) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        themeIcon.className = 'fas fa-moon';
+        localStorage.setItem('synthia-theme', 'dark');
+      } else {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+        themeIcon.className = 'fas fa-sun';
+        localStorage.setItem('synthia-theme', 'light');
+      }
+    });
+  }
+
+  // ======================================================
+  // LANGUAGE TOGGLE
+  // ======================================================
+  
+  initLanguageToggle() {
+    const langToggle = document.getElementById('langToggle');
+    
+    langToggle.addEventListener('change', () => {
+      this.currentLang = langToggle.checked ? 'fr' : 'en';
+      localStorage.setItem('synthia-lang', this.currentLang);
+      this.updateLanguage();
+    });
+  }
+
+  updateLanguage() {
+    // Update all elements with data-en and data-fr attributes
+    document.querySelectorAll('[data-en], [data-fr]').forEach(element => {
+      const text = element.getAttribute(`data-${this.currentLang}`);
+      if (text) {
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.placeholder = text;
+        } else if (element.tagName === 'OPTION') {
+          element.textContent = text;
+        } else {
+          element.textContent = text;
+        }
+      }
+    });
+    
+    // Update select options
+    document.querySelectorAll('select').forEach(select => {
+      Array.from(select.options).forEach(option => {
+        const text = option.getAttribute(`data-${this.currentLang}`);
+        if (text) option.textContent = text;
+      });
+    });
+  }
+
+  // Méthodes nécessaires mais non définies (ajoutez-les si besoin)
+  initSwipeNavigation() {
+    // À implémenter si nécessaire
+  }
+  
+  initForm() {
+    // À implémenter si nécessaire
+  }
+}
+
+// ======================================================
+// MOBILE NAVIGATION FUNCTIONS
+// ======================================================
+
+function initMobileNavigation() {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const closeMobileMenu = document.getElementById('closeMobileMenu');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  
+  console.log('Initializing mobile navigation...');
+  
+  // Toggle mobile menu
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', (e) => {
+      console.log('Hamburger clicked');
+      e.stopPropagation();
+      mobileNav.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  } else {
+    console.error('mobileMenuToggle not found!');
+  }
+  
+  // Close mobile menu
+  if (closeMobileMenu) {
+    closeMobileMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  // Close mobile menu when clicking on a link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      // Update active state
+      mobileNavLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      
+      // Navigate to the page
+      const target = link.getAttribute('href').substring(1);
+      console.log('Navigating to:', target);
+      
+      // Utiliser votre SPA existante
+      if (window.spa && typeof window.spa.showPage === 'function') {
+        window.spa.showPage(target);
+      } else {
+        // Fallback simple
+        document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+        });
+        const targetPage = document.getElementById(target);
+        if (targetPage) {
+          targetPage.classList.add('active');
+        }
+        
+        // Update desktop nav active state
+        document.querySelectorAll('.nav-link').forEach(navLink => {
+          navLink.classList.remove('active');
+          if (navLink.getAttribute('href') === `#${target}`) {
+            navLink.classList.add('active');
+          }
+        });
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+  
+  // Close mobile menu when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (mobileNav.classList.contains('active') && 
+        !mobileNav.contains(e.target) && 
+        e.target !== mobileMenuToggle) {
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Sync mobile toggle with desktop toggle
+  const desktopLangToggle = document.getElementById('langToggle');
+  const mobileLangToggle = document.getElementById('mobileLangToggle');
+  
+  if (desktopLangToggle && mobileLangToggle) {
+    // Sync initial state
+    mobileLangToggle.checked = desktopLangToggle.checked;
+    
+    // Sync from desktop to mobile
+    desktopLangToggle.addEventListener('change', () => {
+      mobileLangToggle.checked = desktopLangToggle.checked;
+    });
+    
+    // Sync from mobile to desktop
+    mobileLangToggle.addEventListener('change', () => {
+      desktopLangToggle.checked = mobileLangToggle.checked;
+      desktopLangToggle.dispatchEvent(new Event('change'));
+    });
+  }
+  
+  // Sync theme toggle
+  const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', () => {
+      // Trigger theme toggle on desktop button
+      const desktopThemeToggle = document.getElementById('themeToggle');
+      if (desktopThemeToggle) desktopThemeToggle.click();
+    });
+  }
+}
+
+// ======================================================
+// CONTACT FORM HANDLER (index.html)
+// ======================================================
+
+function initContactForm() {
+  const contactForm = document.getElementById('inquiryForm');
+  
+  if (!contactForm) return;
+  
+  // Ensure EmailJS is initialized
+  if (!window.EmailJSHelper || !window.EmailJSHelper.initEmailJS()) {
+    console.error('EmailJS not initialized');
+    return;
+  }
+  
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Get current language
+    const currentLang = window.spa ? window.spa.currentLang : 'en';
+    
+    // Prepare form data
+    const formData = {
+      from_name: this.querySelector('[name="from_name"]').value,
+      from_email: this.querySelector('[name="from_email"]').value,
+      service: this.querySelector('[name="service"]').value,
+      message: this.querySelector('[name="message"]').value,
+      to_email: 'synthiapro.va@gmail.com',
+      submitted_at: new Date().toLocaleString(),
+      language: currentLang
+    };
+    console.log('=== CONTACT FORM DEBUG ===');
+    console.log('Form data being sent:', formData);
+    console.log('Using template ID:', EMAILJS_CONFIG.contactTemplateId);
+    console.log('Using service ID:', EMAILJS_CONFIG.serviceId);
+    console.log('Using public key:', EMAILJS_CONFIG.publicKey);
+    console.log('=======================');
+
+    // Submit using EmailJS
+    try {
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.contactTemplateId,
+        formData
+      );
+      
+      if (response.status === 200) {
+        // Show success message
+        window.EmailJSHelper.showEmailModal({
+          type: 'success',
+          title: currentLang === 'en' 
+            ? 'Message Sent Successfully!'
+            : 'Message envoyé avec succès !',
+          message: currentLang === 'en'
+            ? 'Thank you for your inquiry. I will contact you within 24 hours.'
+            : 'Merci pour votre demande. Je vous contacterai dans les 24 heures.',
+          onClose: () => {
+            contactForm.reset();
+          }
+        });
+      }
+    } catch (error) {
+      console.error('=== CONTACT FORM ERROR ===');
+      console.error('Error details:', error);
+      console.error('=======================');
+
+      // Show error message
+      window.EmailJSHelper.showEmailModal({
+        type: 'error',
+        title: currentLang === 'en'
+          ? 'Submission Failed'
+          : 'Échec de l\'envoi',
+        message: currentLang === 'en'
+          ? 'Please try again or email me directly at synthiapro.va@gmail.com'
+          : 'Veuillez réessayer ou m\'envoyer un email directement à synthiapro.va@gmail.com',
+        autoClose: false
+      });
+    }
+  });
+}
+
+// ======================================================
+// QUOTE REQUEST COOLDOWN SYSTEM (5 heures)
+// ======================================================
+
+class QuoteCooldown {
+  constructor() {
+    this.storageKey = 'synthia_quote_cooldown';
+    this.cooldownHours = 5; // Durée du cooldown en heures
+  }
+  
+  // Vérifier si un utilisateur peut envoyer une nouvelle demande
+  canSubmitQuote(email) {
+    const cooldownData = this.getCooldownData();
+    
+    // Si pas de données, c'est bon
+    if (!cooldownData[email]) {
+      return { allowed: true, remaining: 0 };
+    }
+    
+    const lastSubmission = new Date(cooldownData[email]);
+    const now = new Date();
+    const hoursPassed = (now - lastSubmission) / (1000 * 60 * 60);
+    const hoursRemaining = this.cooldownHours - hoursPassed;
+    
+    if (hoursPassed >= this.cooldownHours) {
+      // Cooldown terminé, supprimer l'entrée
+      this.removeCooldown(email);
+      return { allowed: true, remaining: 0 };
+    }
+    
+    return { 
+      allowed: false, 
+      remaining: Math.ceil(hoursRemaining),
+      nextSubmit: new Date(lastSubmission.getTime() + (this.cooldownHours * 60 * 60 * 1000))
+    };
+  }
+  
+  // Enregistrer une nouvelle soumission
+  recordSubmission(email) {
+    const cooldownData = this.getCooldownData();
+    cooldownData[email] = new Date().toISOString();
+    localStorage.setItem(this.storageKey, JSON.stringify(cooldownData));
+    
+    // Nettoyer les anciennes entrées (plus de 24h)
+    this.cleanupOldEntries();
+  }
+  
+  // Supprimer le cooldown pour un email
+  removeCooldown(email) {
+    const cooldownData = this.getCooldownData();
+    delete cooldownData[email];
+    localStorage.setItem(this.storageKey, JSON.stringify(cooldownData));
+  }
+  
+  // Obtenir toutes les données de cooldown
+  getCooldownData() {
+    try {
+      const data = localStorage.getItem(this.storageKey);
+      return data ? JSON.parse(data) : {};
+    } catch (e) {
+      console.error('Error reading cooldown data:', e);
+      return {};
+    }
+  }
+  
+  // Nettoyer les entrées de plus de 24h
+  cleanupOldEntries() {
+    const cooldownData = this.getCooldownData();
+    const now = new Date();
+    const twentyFourHoursAgo = now.getTime() - (24 * 60 * 60 * 1000);
+    
+    let changed = false;
+    for (const [email, timestamp] of Object.entries(cooldownData)) {
+      const submissionTime = new Date(timestamp).getTime();
+      if (submissionTime < twentyFourHoursAgo) {
+        delete cooldownData[email];
+        changed = true;
+      }
+    }
+    
+    if (changed) {
+      localStorage.setItem(this.storageKey, JSON.stringify(cooldownData));
+    }
+  }
+  
+  // Formater le temps restant de façon lisible
+  formatRemainingTime(hours) {
+    const currentLang = window.spa?.currentLang || 'en';
+    
+    if (hours >= 1) {
+      const wholeHours = Math.floor(hours);
+      const minutes = Math.round((hours - wholeHours) * 60);
+      
+      if (currentLang === 'fr') {
+        if (wholeHours === 1) {
+          return minutes > 0 ? `1 heure et ${minutes} minutes` : '1 heure';
+        } else {
+          return minutes > 0 ? `${wholeHours} heures et ${minutes} minutes` : `${wholeHours} heures`;
+        }
+      } else {
+        if (wholeHours === 1) {
+          return minutes > 0 ? `1 hour and ${minutes} minutes` : '1 hour';
+        } else {
+          return minutes > 0 ? `${wholeHours} hours and ${minutes} minutes` : `${wholeHours} hours`;
+        }
+      }
+    } else {
+      const minutes = Math.round(hours * 60);
+      return currentLang === 'fr' ? `${minutes} minutes` : `${minutes} minutes`;
+    }
+  }
+}
+
+// Créer une instance globale
+window.quoteCooldown = new QuoteCooldown();
+
+// ======================================================
+// FONCTIONS UTILITAIRES POUR LE PUP
+// ======================================================
+
+// Fonction pour réinitialiser le formulaire pup
+function resetPupForm() {
+  const pupForm = document.getElementById('pupForm');
+  if (pupForm && window.pupFormOriginalHTML) {
+    pupForm.innerHTML = window.pupFormOriginalHTML;
+    // Réattacher les événements
+    attachPupFormEvents();
+  }
+}
+
+// Fonction pour fermer le pup
+function closeQuotePup() {
+  const quotePup = document.getElementById('quotePup');
+  if (quotePup) {
+    quotePup.classList.remove('active', 'pulse');
+    // Réinitialiser le formulaire
+    resetPupForm();
+  }
+}
+
+// Fonction pour afficher le message de cooldown
+function showCooldownMessage(cooldownCheck, lang, email) {
+  const pupContent = document.querySelector('.quote-pup-form');
+  if (!pupContent) return;
+  
+  const remainingTime = window.quoteCooldown.formatRemainingTime(cooldownCheck.remaining);
+  const nextSubmitTime = cooldownCheck.nextSubmit.toLocaleTimeString([], { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+  
+  const cooldownHTML = `
+    <div style="text-align: center; padding: var(--spacing-lg) 0;">
+      <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: var(--spacing-md);"></i>
+      <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">
+        ${lang === 'en' ? 'Please Wait' : 'Veuillez Patienter'}
+      </h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-sm); line-height: 1.4;">
+        ${lang === 'en' 
+          ? `You've already submitted a quote request from <strong>${email}</strong>.` 
+          : `Vous avez déjà soumis une demande de devis depuis <strong>${email}</strong>.`}
+      </p>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-lg); line-height: 1.4;">
+        ${lang === 'en' 
+          ? `You can submit another request in <strong>${remainingTime}</strong> (after ${nextSubmitTime}).` 
+          : `Vous pouvez soumettre une autre demande dans <strong>${remainingTime}</strong> (après ${nextSubmitTime}).`}
+      </p>
+      <div style="display: flex; gap: var(--spacing-sm); justify-content: center;">
+        <button class="pricing-cta-button" onclick="resetPupForm()" style="font-size: 0.8rem;">
+          ${lang === 'en' ? 'Use Different Email' : 'Utiliser un autre Email'}
+        </button>
+        <button class="pricing-cta-button primary" onclick="closeQuotePup()" style="font-size: 0.8rem;">
+          ${lang === 'en' ? 'Close' : 'Fermer'}
+        </button>
+      </div>
+      <p style="color: var(--text-tertiary); font-size: 0.75rem; margin-top: var(--spacing-md);">
+        <i class="fas fa-info-circle"></i>
+        ${lang === 'en' 
+          ? 'This prevents spam and ensures we can respond to everyone promptly.' 
+          : 'Ceci évite le spam et nous permet de répondre à tout le monde rapidement.'}
+      </p>
+    </div>
+  `;
+  
+  pupContent.innerHTML = cooldownHTML;
+}
+
+// Fonction pour afficher le succès avec info cooldown
+function showPupSuccessWithCooldown(lang, email) {
+  const pupContent = document.querySelector('.quote-pup-form');
+  if (!pupContent) return;
+  
+  const successHTML = `
+    <div style="text-align: center; padding: var(--spacing-lg) 0;">
+      <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: var(--spacing-md);"></i>
+      <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">
+        ${lang === 'en' ? 'Quote Request Sent!' : 'Demande de Devis Envoyée !'}
+      </h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-sm); line-height: 1.4;">
+        ${lang === 'en' 
+          ? 'Thank you! I\'ll send your personalized quote within 24 hours.' 
+          : 'Merci ! Je vous enverrai votre devis personnalisé dans les 24 heures.'}
+      </p>
+      <div style="background: rgba(184, 165, 143, 0.1); border-radius: var(--radius-md); padding: var(--spacing-sm); margin: var(--spacing-md) 0;">
+        <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0;">
+          <i class="fas fa-clock" style="margin-right: 5px;"></i>
+          ${lang === 'en' 
+            ? `You can submit another request in 5 hours (from ${email})` 
+            : `Vous pourrez soumettre une autre demande dans 5 heures (depuis ${email})`}
+        </p>
+      </div>
+      <button class="pricing-cta-button" onclick="closeQuotePup()" style="font-size: 0.8rem;">
+        ${lang === 'en' ? 'Close' : 'Fermer'}
+      </button>
+    </div>
+  `;
+  
+  pupContent.innerHTML = successHTML;
+}
+
+// Fonction pour afficher l'erreur dans le pup
+function showPupError(error, lang) {
+  const pupContent = document.querySelector('.quote-pup-form');
+  if (!pupContent) return;
+  
+  const errorHTML = `
+    <div style="text-align: center; padding: var(--spacing-lg) 0;">
+      <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; color: #e74c3c; margin-bottom: var(--spacing-md);"></i>
+      <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">
+        ${lang === 'en' ? 'Submission Failed' : 'Échec de l\'envoi'}
+      </h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-md);">
+        ${lang === 'en' 
+          ? 'Please email me directly at synthiapro.va@gmail.com' 
+          : 'Veuillez m\'envoyer un email directement à synthiapro.va@gmail.com'}
+      </p>
+      <button class="pricing-cta-button" onclick="resetPupForm()" style="font-size: 0.8rem; padding: var(--spacing-xs) var(--spacing-md);">
+        ${lang === 'en' ? 'Try Again' : 'Réessayer'}
+      </button>
+    </div>
+  `;
+  
+  pupContent.innerHTML = errorHTML;
+}
+
+// Fonction pour mettre à jour l'interface avec le cooldown
+function updatePupFormWithCooldown(email) {
+  const emailInput = document.getElementById('pupEmail');
+  const submitBtn = document.querySelector('#pupForm button[type="submit"]');
+  
+  if (!emailInput || !submitBtn) return;
+  
+  const cooldownCheck = window.quoteCooldown.canSubmitQuote(email);
+  
+  if (!cooldownCheck.allowed && email) {
+    // Désactiver le bouton et afficher un message
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <i class="fas fa-clock"></i>
+      <span>${window.quoteCooldown.formatRemainingTime(cooldownCheck.remaining)}</span>
+    `;
+    
+    // Ajouter un tooltip
+    submitBtn.title = `Next submission: ${cooldownCheck.nextSubmit.toLocaleTimeString()}`;
+    
+    // Changer la couleur
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.background = 'var(--text-tertiary)';
+  } else {
+    // Réactiver le bouton
+    submitBtn.disabled = false;
+    const currentLang = window.spa?.currentLang || 'en';
+    submitBtn.innerHTML = `
+      <span>${currentLang === 'en' ? 'Send Quick Quote' : 'Envoyer le Devis Rapide'}</span>
+      <i class="fas fa-paper-plane"></i>
+    `;
+    submitBtn.style.opacity = '1';
+    submitBtn.style.background = '';
+  }
+}
+
+// Fonction pour attacher les événements du formulaire
+function attachPupFormEvents() {
+  const pupForm = document.getElementById('pupForm');
+  if (!pupForm) return;
+  
+  // Gestion de la soumission
+  pupForm.addEventListener('submit', handlePupFormSubmit);
+  
+  // Écouter les changements d'email
+  const emailInput = document.getElementById('pupEmail');
+  if (emailInput) {
+    emailInput.addEventListener('input', function(e) {
+      const email = e.target.value.trim();
+      if (email.includes('@')) {
+        updatePupFormWithCooldown(email);
+      }
+    });
+  }
+}
+
+// Fonction de soumission du formulaire pup
+async function handlePupFormSubmit(e) {
+  e.preventDefault();
+  
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  const currentLang = window.spa?.currentLang || 'en';
+  const email = this.querySelector('#pupEmail').value.trim();
+  
+  // Vérifier le cooldown
+  const cooldownCheck = window.quoteCooldown.canSubmitQuote(email);
+  
+  if (!cooldownCheck.allowed) {
+    // Afficher message d'erreur cooldown
+    showCooldownMessage(cooldownCheck, currentLang, email);
+    return;
+  }
+  
+  // Afficher l'état de chargement
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + 
+    (currentLang === 'en' ? 'Sending...' : 'Envoi en cours...');
+  submitBtn.disabled = true;
+  
+  try {
+    // Collecter les données
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    // Préparer les paramètres pour EmailJS
+    const templateParams = {
+      to_email: 'synthiapro.va@gmail.com',
+      from_name: data.name,
+      from_email: data.email,
+      service: `Quote - ${data.package}`,
+      message: `Package: ${data.package}\nHours: ${data.hours}\n\nMessage: ${data.message || 'No additional message'}`,
+      submitted_at: new Date().toLocaleString(),
+      current_language: currentLang,
+      form_type: 'quick_quote_pup',
+      page_url: window.location.href
+    };
+    
+    // Envoyer l'email
+    const response = await emailjs.send(
+      window.EmailJSHelper.EMAILJS_CONFIG.serviceId,
+      window.EmailJSHelper.EMAILJS_CONFIG.contactTemplateId,
+      templateParams
+    );
+    
+    if (response.status === 200) {
+      // Enregistrer la soumission dans le cooldown
+      window.quoteCooldown.recordSubmission(email);
+      
+      // Afficher le succès avec info cooldown
+      showPupSuccessWithCooldown(currentLang, email);
+      
+      // Fermer le pup après 3 secondes
+      setTimeout(() => {
+        closeQuotePup();
+      }, 3000);
+    }
+    
+  } catch (error) {
+    console.error('Pup email failed:', error);
+    showPupError(error, currentLang);
+    
+  } finally {
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  }
+}
+
+// ======================================================
+// FONCTION PRINCIPALE DU PUP
+// ======================================================
+
+function initQuotePup() {
+  const quotePup = document.getElementById('quotePup');
+  const pupForm = document.getElementById('pupForm');
+  const closePup = document.getElementById('closePup');
+  const pupPackageInput = document.getElementById('pupPackage');
+  const pupTitle = document.getElementById('pupTitle');
+  const pupTrigger = document.getElementById('pupTrigger');
+  
+  // Sauvegarder le HTML original du formulaire
+  if (pupForm) {
+    window.pupFormOriginalHTML = pupForm.innerHTML;
+  }
+  
+  if (!quotePup) {
+    console.log('Quote pup not found');
+    return;
+  }
+  
+  // Attacher les événements du formulaire
+  attachPupFormEvents();
+  
+  // Ouvrir le pup avec les boutons de pricing
+  document.querySelectorAll('.open-quote-pup').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const packageType = this.getAttribute('data-package');
+      const packageTitle = this.getAttribute('data-title');
+      
+      if (packageType && pupPackageInput) {
+        pupPackageInput.value = packageType;
+      }
+      
+      // Mettre à jour le titre du pup
+      if (packageTitle && pupTitle) {
+        const currentLang = window.spa?.currentLang || 'en';
+        if (currentLang === 'fr') {
+          const translations = {
+            'Essentials Package': 'Forfait Essentiels',
+            'Growth Package': 'Forfait Croissance',
+            'Executive Package': 'Forfait Exécutif'
+          };
+          pupTitle.textContent = translations[packageTitle] || packageTitle;
+        } else {
+          pupTitle.textContent = packageTitle;
+        }
+      }
+      
+      // Afficher le pup
+      quotePup.classList.add('active', 'pulse');
+      
+      // Focus sur le premier champ
+      setTimeout(() => {
+        const firstInput = quotePup.querySelector('input, textarea, select');
+        if (firstInput) firstInput.focus();
+      }, 300);
+    });
+  });
+  
+  // Fermer le pup
+  if (closePup) {
+    closePup.addEventListener('click', closeQuotePup);
+  }
+  
+  // Fermer en cliquant à l'extérieur
+  document.addEventListener('click', function(e) {
+    if (quotePup.classList.contains('active') && 
+        !quotePup.contains(e.target) && 
+        !e.target.closest('.open-quote-pup') &&
+        !e.target.closest('.pup-trigger-btn')) {
+      closeQuotePup();
+    }
+  });
+  
+  // Fermer avec la touche Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && quotePup.classList.contains('active')) {
+      closeQuotePup();
+    }
+  });
+  
+  // Bouton flottant sur mobile
+  if (pupTrigger) {
+    pupTrigger.addEventListener('click', function() {
+      quotePup.classList.toggle('active');
+      if (quotePup.classList.contains('active')) {
+        quotePup.classList.add('pulse');
+        setTimeout(() => {
+          const firstInput = quotePup.querySelector('input, textarea, select');
+          if (firstInput) firstInput.focus();
+        }, 300);
+      } else {
+        quotePup.classList.remove('pulse');
+      }
+    });
+  }
+  
+  // Mettre à jour les placeholders selon la langue
+  function updatePupLanguage(lang) {
+    const elements = quotePup.querySelectorAll('[data-en-placeholder], [data-fr-placeholder], [data-en], [data-fr]');
+    elements.forEach(element => {
+      if (element.hasAttribute(`data-${lang}-placeholder`)) {
+        element.placeholder = element.getAttribute(`data-${lang}-placeholder`);
+      }
+      if (element.hasAttribute(`data-${lang}`) && !element.placeholder) {
+        element.textContent = element.getAttribute(`data-${lang}`);
+      }
+    });
+    
+    // Mettre à jour les options du select
+    const selectOptions = quotePup.querySelectorAll('option[data-en], option[data-fr]');
+    selectOptions.forEach(option => {
+      const text = option.getAttribute(`data-${lang}`);
+      if (text) option.textContent = text;
+    });
+  }
+  
+  // Écouter les changements de langue
+  const langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    langToggle.addEventListener('change', function() {
+      const lang = this.checked ? 'fr' : 'en';
+      updatePupLanguage(lang);
+    });
+  }
+  
+  // Initialiser avec la langue courante
+  const currentLang = localStorage.getItem('synthia-lang') || 'en';
+  updatePupLanguage(currentLang);
+}
+
+// ======================================================
+// FONCTIONS POUR LES TESTS
+// ======================================================
+
+// Fonction pour réinitialiser le cooldown (utile pour les tests)
+window.resetQuoteCooldown = function(email = null) {
+  if (email) {
+    window.quoteCooldown.removeCooldown(email);
+    console.log(`Cooldown reset for: ${email}`);
+    alert(`Cooldown reset for ${email}`);
+  } else {
+    localStorage.removeItem('synthia_quote_cooldown');
+    console.log('All cooldowns reset');
+    alert('All cooldowns reset');
+  }
+};
+
+// ======================================================
+// INITIALIZE EVERYTHING IN ONE DOMContentLoaded
+// ======================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM fully loaded');
+  
+  // 1. Create and initialize SPA
+  const spa = new LuxurySPA();
+  window.spa = spa;
+  
+  // 2. Initialize mobile navigation
+  initMobileNavigation();
+  
+  // 3. Initialize contact form
+  setTimeout(initContactForm, 300);
+  
+  // 4. Initialize quote pup
+  setTimeout(initQuotePup, 1000);
+  
+  // 5. Enhanced Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // 6. Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href.length > 1 && !href.startsWith('#home')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+  
+  // 7. Check if SPA initialized correctly
+  setTimeout(() => {
+    if (window.spa) {
+      console.log('SPA found:', window.spa);
+    } else {
+      console.log('No SPA found, using simple navigation');
+    }
+  }, 100);
+  
+  // 8. Test button for development
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    const resetBtn = document.createElement('button');
+    resetBtn.innerHTML = 'Reset Cooldown';
+    resetBtn.style.cssText = 'position:fixed;bottom:150px;right:20px;background:#e74c3c;color:white;border:none;padding:8px 12px;border-radius:5px;cursor:pointer;z-index:10000;font-size:11px;';
+    resetBtn.onclick = () => window.resetQuoteCooldown();
+    document.body.appendChild(resetBtn);
+  }
+  
+  // 9. Integrate with SPA for quote pup
+  if (window.spa) {
+    const originalShowPage = window.spa.showPage;
+    window.spa.showPage = function(pageId) {
+      originalShowPage.call(this, pageId);
+      // Close pup if open when changing page
+      closeQuotePup();
+    };
+  }
+  
+  // 10. Add loading animation for page transitions
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .card:hover .card-icon {
+      animation: float 2s ease-in-out infinite;
+    }
+  `;
+  document.head.appendChild(style);
+  
+  console.log('All components initialized');
+});
+</script>
+</body>
+</html>

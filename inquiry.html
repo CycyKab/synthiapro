@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Synthia Pro | Inquiry Form</title>
+<meta name="description" content="General Inquiry Form for Synthia Pro Virtual Assistance services">
+
+<!-- Mêmes meta tags que votre site principal -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Mêmes polices et icônes -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<style>
+
+/* ======================================================
+   LUXURY BROWN/BEIGE DESIGN SYSTEM
+====================================================== */
+:root {
+  /* Luxury Color Palette */
+  --color-cream: #faf8f5;
+  --color-ivory: #f6f3ef;
+  --color-beige: #e8e2d8;
+  --color-taupe: #d4c9bb;
+  --color-sand: #c6b8a4;
+  --color-clay: #b8a58f;
+  --color-cocoa: #9c8b78;
+  --color-mocha: #7a6b5a;
+  --color-chocolate: #5d5244;
+  --color-charcoal: #3a352e;
+  --color-onyx: #1a1714;
+  
+  /* Glass Effects */
+  --glass-bg: rgba(250, 248, 245, 0.75);
+  --glass-border: rgba(156, 139, 120, 0.25);
+  --glass-shadow: 0 8px 32px rgba(58, 53, 46, 0.08);
+  --glass-blur: blur(30px) saturate(180%);
+  
+  /* Functional Colors */
+  --bg-primary: var(--color-cream);
+  --bg-secondary: var(--color-ivory);
+  --bg-glass: var(--glass-bg);
+  --border-light: rgba(156, 139, 120, 0.15);
+  --border-medium: rgba(156, 139, 120, 0.25);
+  --text-primary: var(--color-onyx);
+  --text-secondary: var(--color-chocolate);
+  --text-tertiary: var(--color-mocha);
+  --accent-primary: var(--color-cocoa);
+  --accent-gold: #b8a58f;
+  --gradient-primary: linear-gradient(135deg, #c6b8a4, #9c8b78);
+  --gradient-gold: linear-gradient(135deg, #d4c9bb, #b8a58f);
+  
+  /* Luxury Spacing */
+  --spacing-xs: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 36px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+  --spacing-4xl: 128px;
+  
+  /* Luxury Radii */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-xl: 44px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 20px rgba(58, 53, 46, 0.05);
+  --shadow-md: 0 12px 40px rgba(58, 53, 46, 0.08);
+  --shadow-lg: 0 24px 80px rgba(58, 53, 46, 0.12);
+  
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-slow: 0.6s;
+  --duration-medium: 0.4s;
+  --duration-fast: 0.2s;
+}
+
+/* Dark Mode Luxury */
+.dark-mode {
+  --glass-bg: rgba(26, 23, 20, 0.85);
+  --glass-border: rgba(184, 165, 143, 0.25);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  
+  --bg-primary: var(--color-onyx);
+  --bg-secondary: var(--color-charcoal);
+  --bg-glass: var(--glass-bg);
+  --border-light: rgba(184, 165, 143, 0.15);
+  --border-medium: rgba(184, 165, 143, 0.25);
+  --text-primary: var(--color-ivory);
+  --text-secondary: var(--color-beige);
+  --text-tertiary: var(--color-taupe);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--duration-medium) ease, color var(--duration-medium) ease;
+}
+
+/* ======================================================
+   LUXURY MARQUEE STRIP
+====================================================== */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(148, 110, 67, 0.9), rgba(209, 174, 133, 0.9));
+  padding: var(--spacing-sm) 0;
+  position: fixed;
+  top: 0;
+  left: 0; 
+  z-index: 1001;
+  border-bottom: 1px solid rgba(184, 165, 143, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-luxury 30s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--spacing-2xl);
+  color: var(--color-charcoal);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.marquee-item .luxury-dot {
+  margin-right: var(--spacing-sm);
+  font-size: 0.6rem;
+  opacity: 0.8;
+}
+
+@keyframes marquee-luxury {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* ======================================================
+   INQUIRY FORM STYLES
+====================================================== */
+.inquiry-navbar {
+  position: fixed;
+  top: 40px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  background: var(--glass);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: var(--glass-shadow);
+  padding: var(--spacing-sm) var(--spacing-xl);
+}
+@media (max-width: 768px) {
+  .inquiry-navbar {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .inquiry-hero {
+    padding-top: 140px !important;
+  }
+}
+.inquiry-nav-brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.back-to-home {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  transition: all var(--duration-fast) ease;
+}
+
+.back-to-home:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-gold);
+  background: rgba(184, 165, 143, 0.1);
+}
+#inquiry {
+  display: block !important;
+  opacity: 1 !important;
+  transform: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Inquiry Hero 1 */
+.inquiry-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Réduisez le padding */
+  overflow: hidden;
+}
+
+.inquiry-hero-bg {
+  position: absolute;
+  top: -40px; /* REMONTEZ pour couvrir l'espace du marquee */
+  left: 0;
+  width: 100%;
+  height: calc(100% + 40px); /* AJOUTEZ la hauteur du marquee */
+  background-image: url('assets/photo1.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3) contrast(1.1);
+  z-index: 1;
+}
+
+
+.inquiry-hero-glass {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl);
+  z-index: 2;
+  box-shadow: var(--shadow-lg);
+  margin-top: 100px; /* Espace pour marquee + navbar */
+}
+
+.inquiry-hero-content {
+  text-align: center;
+}
+
+.inquiry-hero-title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.inquiry-hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  font-weight: 400;
+}
+
+.inquiry-hero-text {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.inquiry-hero-text p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+  font-size: 1.05rem;
+}
+
+/* Form Container */
+.inquiry-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+}
+
+.form-section {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.form-section .section-header {
+  text-align: left;
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-section .section-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(184, 165, 143, 0.1);
+}
+
+/* Name Fields */
+.name-fields {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.name-fields .form-input {
+  flex: 1;
+}
+
+.name-fields select.form-input {
+  flex: 0 0 120px;
+}
+
+/* Radio & Checkbox Groups */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  padding: var(--spacing-xs) 0;
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+  color: var(--text-primary);
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-gold);
+}
+
+/* Inquiry Hero 2 */
+.inquiry-hero-2 {
+  position: relative;
+  min-height: 40vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-2xl) 0;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.inquiry-hero-2-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/photo1.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4) contrast(1.1); /* Rendez le fond plus sombre */
+  z-index: 1;
+}
+
+.inquiry-hero-2-glass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 23, 20, 0.75); /* Fond plus opaque */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--spacing-3xl);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inquiry-hero-2-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.inquiry-hero-2-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-ivory) !important; /* Blanc cassé pour meilleur contraste */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Ombre portée pour lisibilité */
+  /* Gradient optimisé */
+  background: linear-gradient(135deg, var(--color-ivory), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.inquiry-hero-2-subtitle {
+  color: var(--color-beige) !important; /* Couleur plus claire et chaude */
+  line-height: 1.6;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); /* Ombre légère */
+  opacity: 0.9; /* Légère transparence pour élégance */
+}
+.dark-mode .inquiry-hero-2-title {
+  background: linear-gradient(135deg, var(--color-ivory), #e8e2d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-mode .inquiry-hero-2-subtitle {
+  color: var(--color-taupe) !important;
+  opacity: 0.85;
+}
+
+/* Final CTA */
+.form-final-cta {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl);
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+}
+
+.final-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.final-cta-text {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+  font-style: italic;
+}
+
+.submit-inquiry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: linear-gradient(135deg, rgba(184, 165, 143, 0.9), rgba(156, 139, 120, 0.9));
+  color: var(--color-charcoal);
+  border: 1px solid rgba(184, 165, 143, 0.3);
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  margin-bottom: var(--spacing-lg);
+}
+
+.submit-inquiry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(184, 165, 143, 0.5);
+}
+
+.form-note {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .marquee-container {
+    padding: 8px 0; 
+  }
+  .inquiry-hero {
+    min-height: 50vh;
+    padding: 120px 15px 60px;
+  }
+    .inquiry-navbar {
+    top: 32px;
+    width: 95%;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+    .inquiry-hero-bg {
+    top: -32px; 
+    height: calc(100% + 32px);
+  }
+  .inquiry-hero-glass {
+    margin-top: 80px;
+    padding: var(--spacing-xl);
+    width: 95%;
+  }
+  
+  .inquiry-form-container {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .form-section {
+    padding: var(--spacing-xl);
+  }
+  
+  .name-fields {
+    flex-direction: column;
+  }
+  
+  .name-fields select.form-input {
+    flex: 1;
+  }
+  
+  .inquiry-hero-2 {
+    min-height: 30vh;
+    margin: var(--spacing-xl) 0;
+  }
+  
+  .inquiry-hero-2-glass {
+    padding: var(--spacing-xl);
+  }
+  
+  .inquiry-hero-2-title {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  }
+  
+  .inquiry-hero-2-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+/* ======================================================
+   IMPROVED THEME TOGGLE STYLES
+====================================================== */
+.control-btn {
+  background: var(--bg-glass);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--duration-medium) var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.control-btn:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background: rgba(184, 165, 143, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+/* Icône soleil dorée */
+.control-btn .fa-sun {
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+/* Icône lune champagne */
+.control-btn .fa-moon {
+  color: #B8A58F;
+  text-shadow: 0 0 8px rgba(184, 165, 143, 0.3);
+}
+
+/* Dark mode adjustments */
+.dark-mode .control-btn {
+  background: rgba(26, 23, 20, 0.85);
+  border-color: rgba(184, 165, 143, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .control-btn {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* ======================================================
+   FRENCH BUTTON STYLES
+====================================================== */
+
+.french-alternative-btn:hover {
+  background: rgba(184, 165, 143, 0.1);
+  border-color: var(--accent-gold);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.french-flag-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 35, 149, 0.3);
+}
+
+/* Dark mode adjustments */
+.dark-mode .french-flag-link {
+  box-shadow: 0 2px 12px rgba(0, 35, 149, 0.4);
+}
+
+.dark-mode .french-alternative-btn {
+  border-color: rgba(184, 165, 143, 0.3);
+}
+
+.dark-mode .french-alternative-btn:hover {
+  border-color: var(--accent-gold);
+  background: rgba(184, 165, 143, 0.15);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .language-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm) !important;
+  }
+  
+  .current-language,
+  .french-alternative-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .french-flag-link {
+    padding: var(--spacing-xs) var(--spacing-md) !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+</style>
+</head>
+<body class="light-mode">
+
+<div class="marquee-container">
+  <div class="marquee-track">
+    <div class="marquee-item">
+      <span class="luxury-dot">•</span> <span data-en="BOOKING NOW - Limited Availability for January 2026" data-fr="RÉSERVATION OUVERTE - Disponibilité limitée pour Janvier 2026">BOOKING NOW - Limited Availability for January 2026</span>
+    </div>
+    <div class="marquee-item">
+      <span class="luxury-dot">•</span> <span data-en="SPECIAL OFFER: Free Systems Audit with Annual Commitment" data-fr="OFFRE SPÉCIALE : Audit des systèmes gratuit avec engagement annuel">SPECIAL OFFER: Free Systems Audit with Annual Commitment</span>
+    </div>
+    <div class="marquee-item">
+      <span class="luxury-dot">•</span> <span data-en="EXCLUSIVE: Priority Onboarding for January Clients" data-fr="EXCLUSIF : Intégration prioritaire pour les clients de Janvier">EXCLUSIVE: Priority Onboarding for January Clients</span>
+    </div>
+  </div>
+</div>
+  <!-- Navbar simplifiée -->
+  <nav class="inquiry-navbar">
+    <a href="index.html" class="inquiry-nav-brand">SYNTHIA PRO</a>
+    <a href="index.html" class="back-to-home">
+      <i class="fas fa-arrow-left"></i>
+      <span data-en="Back to Home" data-fr="Retour à l'accueil">Back to Home</span>
+    </a>
+  </nav>
+
+  <!-- INQUIRY FORM PAGE - Cette page sera affichée -->
+  <section id="inquiry" class="page active">
+  <!-- HERO SECTION 1 -->
+  <div class="inquiry-hero">
+    <div class="inquiry-hero-bg"></div>
+    <div class="inquiry-hero-glass">
+      <div class="inquiry-hero-content">
+        <h1 class="inquiry-hero-title" data-en="General Inquiry Form" data-fr="Formulaire de Demande Générale">General Inquiry Form</h1>
+        <p class="inquiry-hero-subtitle" data-en="Synthia Pro Virtual Assistance" data-fr="Assistance Virtuelle Synthia Pro">Synthia Pro Virtual Assistance</p>
+        <div class="inquiry-hero-text">
+          <p data-en="Thank you for your interest in working together Please take a few minutes to complete this form so I can better understand your business, your needs, and the type of support you’re looking for." 
+             data-fr="Merci de votre intérêt à travailler ensemble Veuillez prendre quelques minutes pour remplir ce formulaire afin que je puisse mieux comprendre votre entreprise, vos besoins et le type de soutien que vous recherchez.">
+            Thank you for your interest in working together Please take a few minutes to complete this form so I can better understand your business, your needs, and the type of support you’re looking for.
+          </p>
+          <p data-en="This inquiry allows me to assess your goals and ensure we’re the right fit before scheduling a Discovery Call. Once submitted, you’ll receive a follow-up within 24–48 business hours with the next steps."
+             data-fr="Cette demande me permet d'évaluer vos objectifs et de m'assurer que nous sommes compatibles avant de planifier un appel de découverte. Une fois soumis, vous recevrez un suivi dans les 24 à 48 heures ouvrables avec les prochaines étapes.">
+            This inquiry allows me to assess your goals and ensure we’re the right fit before scheduling a Discovery Call. Once submitted, you’ll receive a follow-up within 24–48 business hours with the next steps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM SECTION -->
+  <div class="inquiry-form-container">
+    <form id="detailedInquiryForm" class="inquiry-form">
+      
+      <!-- SECTION 1: CONTACT INFORMATION -->
+      <div class="form-section">
+        <div class="section-header">
+          <h2 class="section-title" data-en="SECTION 1 — CONTACT INFORMATION" data-fr="SECTION 1 — INFORMATIONS DE CONTACT">SECTION 1 — CONTACT INFORMATION</h2>
+        </div>
+        
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName" name="fullName" id="fullName" data-en="Full Name*" data-fr="Nom Complet*">Full Name*</label>
+          <div class="name-fields">
+            <select id="prefix" name="prefix" class="form-input" style="flex: 0 0 100px;">
+              <option value="" data-en="Prefix" data-fr="Préfixe">Prefix</option>
+              <option value="mr" data-en="Mr." data-fr="M.">Mr.</option>
+              <option value="mrs" data-en="Mrs." data-fr="Mme">Mrs.</option>
+              <option value="miss" data-en="Miss" data-fr="Mlle">Miss</option>
+              <option value="ms" data-en="Ms." data-fr="Mme">Ms.</option>
+              <option value="mx" data-en="Mx." data-fr="Mx.">Mx.</option>
+            </select>
+            <input type="text" name="firstName" id="firstName" class="form-input" placeholder="First Name" required data-en-placeholder="First Name" data-fr-placeholder="Prénom">
+            <input type="text" name="lastName" id="lastName" class="form-input" placeholder="Last Name" required data-en-placeholder="Last Name" data-fr-placeholder="Nom">
+          </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email" data-en="Email Address*" data-fr="Adresse Email*">Email Address*</label>
+          <input type="email" name="email" id="email" class="form-input" placeholder="example@example.com" required>
+        </div>
+        
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone" data-en="Phone Number" data-fr="Numéro de Téléphone">Phone Number</label>
+          <input type="tel" name="phone" id="phone" class="form-input" placeholder="+1 234 567 8900" data-en-placeholder="+1 234 567 8900" data-fr-placeholder="+33 1 23 45 67 89">
+        </div>
+        
+        <!-- Business Name -->
+        <div class="form-group">
+          <label for="businessName" data-en="Business Name*" data-fr="Nom de l'Entreprise*">Business Name*</label>
+          <input type="text" name="businessName" id="businessName" class="form-input" placeholder="Your registered business or brand name" required data-en-placeholder="Your registered business or brand name" data-fr-placeholder="Votre entreprise enregistrée ou nom de marque">
+        </div>
+        
+        <!-- Website -->
+        <div class="form-group">
+          <label for="website" data-en="Website (if available)" data-fr="Site Web (si disponible)">Website (if available)</label>
+          <input type="url" name="website" id="website" class="form-input" placeholder="https://yourwebsite.com" data-en-placeholder="https://yourwebsite.com" data-fr-placeholder="https://votresite.com">
+        </div>
+        
+        <!-- Social Media -->
+        <div class="form-group">
+          <label for="socialMedia" data-en="Social Media Handles*" data-fr="Comptes Réseaux Sociaux*">Social Media Handles*</label>
+          <textarea id="socialMedia" name="socialMedia" class="form-input" rows="2" placeholder="Instagram: @yourhandle, LinkedIn: linkedin.com/in/yourprofile" data-en-placeholder="Instagram: @yourhandle, LinkedIn: linkedin.com/in/yourprofile" data-fr-placeholder="Instagram: @votrecompte, LinkedIn: linkedin.com/in/votreprofil"></textarea>
+        </div>
+      </div>
+      
+      <!-- HERO SECTION 2 -->
+      <div class="inquiry-hero-2">
+        <div class="inquiry-hero-2-bg"></div>
+        <div class="inquiry-hero-2-glass">
+          <div class="inquiry-hero-2-content">
+            <h2 class="inquiry-hero-2-title" data-en="LET'S TAILOR YOUR SUPPORT" data-fr="PERSONNALISONS VOTRE SUPPORT">LET'S TAILOR YOUR SUPPORT</h2>
+            <p class="inquiry-hero-2-subtitle" data-en="The more I know about your business, the better I can assist you. Tell me which tasks slow you down so I can help you focus on what truly matters." 
+               data-fr="Plus j'en sais sur votre entreprise, mieux je peux vous aider. Dites-moi quelles tâches vous ralentissent pour que je puisse vous aider à vous concentrer sur ce qui compte vraiment.">
+              The more I know about your business, the better I can assist you. Tell me which tasks slow you down so I can help you focus on what truly matters.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SECTION 2: BUSINESS OVERVIEW -->
+      <div class="form-section">
+        <div class="section-header">
+          <h2 class="section-title" data-en="SECTION 2 — BUSINESS OVERVIEW" data-fr="SECTION 2 — APERÇU DE L'ENTREPRISE">SECTION 2 — BUSINESS OVERVIEW</h2>
+        </div>
+        
+        <!-- Start Date -->
+        <div class="form-group">
+          <label for="startDate" data-en="Ideal Start Date" data-fr="Date de Début Idéale">Ideal Start Date</label>
+          <input type="date" name="startDate" id="startDate" class="form-input">
+        </div>
+        
+        <!-- Business Challenges -->
+        <div class="form-group">
+          <label for="businessChallenges" data-en="Tell me more about your business and the challenges you're currently facing*" data-fr="Parlez-moi de votre entreprise et des défis auxquels vous êtes actuellement confronté*">Tell me more about your business and the challenges you're currently facing*</label>
+          <textarea name="businessChallenges" id="businessChallenges" class="form-input" rows="4" required placeholder="Describe your business, industry, and current pain points..." data-en-placeholder="Describe your business, industry, and current pain points..." data-fr-placeholder="Décrivez votre entreprise, votre secteur et vos difficultés actuelles..."></textarea>
+        </div>
+        
+        <!-- Specific Tasks -->
+        <div class="form-group">
+          <label for="specificTasks" data-en="What specific tasks do you need assistance with?*" data-fr="Quelles tâches spécifiques nécessitent de l'aide ?*">What specific tasks do you need assistance with?*</label>
+          <textarea name="specificTasks" id="specificTasks" class="form-input" rows="4" required placeholder="List the tasks you'd like to delegate..." data-en-placeholder="List the tasks you'd like to delegate..." data-fr-placeholder="Listez les tâches que vous souhaitez déléguer..."></textarea>
+        </div>
+        
+        <!-- Previous VA Experience -->
+        <div class="form-group">
+          <label data-en="Have you worked with a Virtual Assistant before?*" data-fr="Avez-vous déjà travaillé avec une Assistante Virtuelle ?*">Have you worked with a Virtual Assistant before?*</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="vaExperience" value="yes" required>
+              <span data-en="Yes" data-fr="Oui">Yes</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="vaExperience" value="no" required>
+              <span data-en="No" data-fr="Non">No</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SECTION 3: SERVICES & SUPPORT -->
+      <div class="form-section">
+        <div class="section-header">
+          <h2 class="section-title" data-en="SECTION 3 — SERVICES & SUPPORT" data-fr="SECTION 3 — SERVICES & SUPPORT">SECTION 3 — SERVICES & SUPPORT</h2>
+        </div>
+        
+        <!-- Services Interested -->
+        <div class="form-group">
+          <label data-en="What services are you interested in?* (Select all that apply)" data-fr="Quels services vous intéressent ?* (Sélectionnez tout ce qui s'applique)">What services are you interested in?* (Select all that apply)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="services" value="admin">
+              <span data-en="Administrative Support" data-fr="Support Administratif">Administrative Support</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="services" value="tech">
+              <span data-en="Tech Systems & Automation" data-fr="Systèmes Tech & Automatisation">Tech Systems & Automation</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="services" value="creative">
+              <span data-en="Creative & Design Support" data-fr="Support Créatif & Design">Creative & Design Support</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="services" value="bilingual">
+              <span data-en="Bilingual Communication (EN/FR)" data-fr="Communication Bilingue (EN/FR)">Bilingual Communication (EN/FR)</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="services" value="web">
+              <span data-en="Web Design & Development" data-fr="Web Design & Développement">Web Design & Development</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="services" value="other">
+              <span data-en="Other" data-fr="Autre">Other</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Other Services -->
+        <div class="form-group" id="otherServicesGroup" style="display: none;">
+          <label for="otherServices" data-en="If 'Other', please specify:" data-fr="Si 'Autre', veuillez préciser :">If "Other", please specify:</label>
+          <textarea id="otherServices" class="form-input" rows="2" placeholder="Describe any additional support you're looking for." data-en-placeholder="Describe any additional support you're looking for." data-fr-placeholder="Décrivez tout soutien supplémentaire que vous recherchez."></textarea>
+        </div>
+        
+        <!-- Hours Needed -->
+        <div class="form-group">
+          <label data-en="How many hours of support do you estimate you'll need per month?*" data-fr="Combien d'heures de soutien estimez-vous avoir besoin par mois ?*">How many hours of support do you estimate you'll need per month?*</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="hours" value="10-20" required>
+              <span data-en="10–20 hours" data-fr="10–20 heures">10–20 hours</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="hours" value="20-30" required>
+              <span data-en="20–30 hours" data-fr="20–30 heures">20–30 hours</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="hours" value="30-40" required>
+              <span data-en="30–40 hours" data-fr="30–40 heures">30–40 hours</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="hours" value="not-sure" required>
+              <span data-en="Not sure yet" data-fr="Pas encore sûr">Not sure yet</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Budget -->
+        <div class="form-group">
+          <label data-en="My VA packages start at $1,200/month. What is your current budget for the services you're seeking?*" data-fr="Mes forfaits VA commencent à 1 200 $/mois. Quel est votre budget actuel pour les services que vous recherchez ?*">My VA packages start at $1,200/month. What is your current budget for the services you're seeking?*</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="budget" value="under-1200" required>
+              <span data-en="Under $1,200" data-fr="Moins de 1 200 $">Under $1,200</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="budget" value="1200-1500" required>
+              <span data-en="$1,200–$1,500" data-fr="1 200 $ – 1 500 $">$1,200–$1,500</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="budget" value="1500-2000" required>
+              <span data-en="$1,500–$2,000" data-fr="1 500 $ – 2 000 $">$1,500–$2,000</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="budget" value="2000-plus" required>
+              <span data-en="$2,000+" data-fr="2 000 $ et plus">$2,000+</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Commitment -->
+        <div class="form-group">
+          <label data-en="There is a 3-month minimum commitment required to work together. Do you agree to this?*" data-fr="Un engagement minimum de 3 mois est requis pour travailler ensemble. Acceptez-vous cela ?*">There is a 3-month minimum commitment required to work together. Do you agree to this?*</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="commitment" value="yes" required>
+              <span data-en="Yes" data-fr="Oui">Yes</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="commitment" value="no" required>
+              <span data-en="No" data-fr="Non">No</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Tools Used -->
+        <div class="form-group">
+          <label for="tools" data-en="What tools or platforms do you currently use in your business?*" data-fr="Quels outils ou plateformes utilisez-vous actuellement dans votre entreprise ?*">What tools or platforms do you currently use in your business?*</label>
+          <textarea id="tools" class="form-input" rows="2" required placeholder="e.g. Google Workspace, Notion, ClickUp, Slack, CRM tools, etc." data-en-placeholder="e.g. Google Workspace, Notion, ClickUp, Slack, CRM tools, etc." data-fr-placeholder="ex. Google Workspace, Notion, ClickUp, Slack, outils CRM, etc."></textarea>
+        </div>
+        
+        <!-- Additional Info -->
+        <div class="form-group">
+          <label for="additionalInfo" data-en="Is there anything else you'd like to share about your business or support needs?" data-fr="Y a-t-il autre chose que vous souhaitez partager sur votre entreprise ou vos besoins de soutien ?">Is there anything else you'd like to share about your business or support needs?</label>
+          <textarea id="additionalInfo" class="form-input" rows="3" placeholder="Any additional information that might be helpful..." data-en-placeholder="Any additional information that might be helpful..." data-fr-placeholder="Toute information supplémentaire qui pourrait être utile..."></textarea>
+        </div>
+      
+            <!-- FINAL CTA -->
+      <div class="form-final-cta">
+        <div class="final-cta-content">
+          <p class="final-cta-text" data-en=" Thank you for taking the time to complete this inquiry. I look forward to learning more about your business and exploring how we can work together."
+             data-fr=" Merci d'avoir pris le temps de remplir cette demande. J'ai hâte d'en savoir plus sur votre entreprise et d'explorer comment nous pouvons travailler ensemble.">
+             Thank you for taking the time to complete this inquiry. I look forward to learning more about your business and exploring how we can work together.
+          </p>
+          
+          <!-- Main Submit Button -->
+          <button type="submit" class="submit-inquiry-btn">
+            <span data-en="Submit Inquiry" data-fr="Soumettre la Demande">Submit Inquiry</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          
+          <!-- French Language Option -->
+          <br class="language-option" style="margin-top: var(--spacing-lg); text-align: center;">
+            <div class="language-divider" style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
+              <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+              <span style="color: var(--text-tertiary); font-size: 0.9rem;" data-en="Language Options" data-fr="Options de Langue">Language Options</span>
+              <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+            </div>
+            
+            <div class="language-buttons" style="display: flex; gap: var(--spacing-md); justify-content: center; align-items: center;">
+              <!-- Current Language Button -->
+              <div class="current-language" style="
+                background: var(--bg-glass);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius-md);
+                padding: var(--spacing-sm) var(--spacing-md);
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-sm);
+                color: var(--text-primary);
+                font-weight: 500;
+                font-size: 0.95rem;
+              ">
+                <i class="fas fa-check-circle" style="color: var(--accent-gold); font-size: 0.9em;"></i>
+                <span class="current-lang-text" data-en="Filling in English" data-fr="Remplissage en Français">Filling in English</span>
+              </div>
+              
+              <!-- French Alternative Button -->
+              <a href="javascript:void(0);" class="french-alternative-btn" onclick="switchToFrenchVersion()" style="
+                display: inline-flex;
+                align-items: center;
+                gap: var(--spacing-sm);
+                background: transparent;
+                color: var(--text-secondary);
+                padding: var(--spacing-sm) var(--spacing-md);
+                border-radius: var(--radius-md);
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 400;
+                border: 1px solid var(--border-light);
+                transition: all var(--duration-fast) ease;
+              ">
+                <i class="fas fa-exchange-alt" style="font-size: 0.8em; opacity: 0.7;"></i>
+                <span data-en="Prefer French?" data-fr="Préférez-vous l'anglais ?">Prefer French?</span>
+              </a>
+            </div>
+          </br>
+            <p class="form-note" data-en="You'll receive a confirmation email and a follow-up within 24–48 business hours." data-fr="Vous recevrez un email de confirmation et un suivi dans les 24 à 48 heures ouvrables.">
+              You'll receive a confirmation email and a follow-up within 24–48 business hours.
+            </p>
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<script src="email-config.js"></script>
+<script>
+// ======================================================
+// FRENCH VERSION HANDLER
+// ======================================================
+
+function switchToFrenchVersion() {
+  localStorage.setItem('synthia-lang', 'fr');
+  updateLanguage('fr');
+  showLanguageSwitchMessage('fr');
+}
+
+function updateLanguage(lang) {
+  document.querySelectorAll('[data-en], [data-fr]').forEach(element => {
+    const text = element.getAttribute(`data-${lang}`);
+    if (text) {
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+        element.placeholder = text;
+      } else if (element.tagName === 'OPTION') {
+        element.textContent = text;
+      } else {
+        element.textContent = text;
+      }
+    }
+  });
+  
+  // Update current language display
+  const currentLangElement = document.querySelector('.current-lang-text');
+  if (currentLangElement && lang === 'fr') {
+    currentLangElement.textContent = currentLangElement.getAttribute('data-fr');
+  }
+  
+  // Update submit button
+  const submitBtn = document.querySelector('.submit-inquiry-btn span');
+  if (submitBtn && submitBtn.getAttribute('data-fr') && lang === 'fr') {
+    submitBtn.textContent = submitBtn.getAttribute('data-fr');
+  }
+}
+
+function showLanguageSwitchMessage(language) {
+  const message = language === 'fr' 
+    ? 'Formulaire changé en français !'
+    : 'Form switched to French!';
+  
+  // Create notification
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background: var(--bg-glass);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--text-primary);
+    font-weight: 500;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  `;
+  
+  notification.innerHTML = `
+    <i class="fas fa-check-circle" style="color: var(--accent-gold);"></i>
+    <span>${message}</span>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.opacity = '1';
+    notification.style.transform = 'translateX(-50%) translateY(0)';
+  }, 10);
+  
+  setTimeout(() => {
+    notification.style.opacity = '0';
+    notification.style.transform = 'translateX(-50%) translateY(-20px)';
+    setTimeout(() => notification.remove(), 400);
+  }, 3000);
+}
+
+// ======================================================
+// FORM HANDLING - CORRECTED VERSION
+// ======================================================
+
+function initDetailedInquiryForm() {
+  const detailedForm = document.getElementById('detailedInquiryForm');
+  
+  if (!detailedForm) {
+    console.warn('Detailed inquiry form not found');
+    return;
+  }
+  
+  console.log('=== INITIALIZING DETAILED INQUIRY FORM ===');
+  
+  // Toggle "Other" services field
+  const otherCheckbox = detailedForm.querySelector('input[value="other"]');
+  const otherGroup = document.getElementById('otherServicesGroup');
+  
+  if (otherCheckbox && otherGroup) {
+    otherCheckbox.addEventListener('change', function() {
+      otherGroup.style.display = this.checked ? 'block' : 'none';
+    });
+  }
+  
+  // Handle form submission
+  detailedForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    console.log('=== FORM SUBMISSION STARTED ===');
+    
+    // Get current language
+    const currentLang = localStorage.getItem('synthia-lang') || 'en';
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + 
+      (currentLang === 'en' ? 'Sending...' : 'Envoi en cours...');
+    submitBtn.disabled = true;
+    
+    try {
+      // Initialize EmailJS
+      if (!window.EmailJSHelper || !window.EmailJSHelper.initEmailJS()) {
+        throw new Error('EmailJS not initialized');
+      }
+      
+      // Collect all form data manually
+      const formData = {
+        // Contact Information - CORRECTED NAMES
+        prefix: this.querySelector('[name="prefix"]').value || '',
+        first_name: this.querySelector('[name="firstName"]').value || '',
+        last_name: this.querySelector('[name="lastName"]').value || '',
+        email: this.querySelector('[name="email"]').value || '',
+        phone: this.querySelector('[name="phone"]').value || 'Not provided',
+        business_name: this.querySelector('[name="businessName"]').value || '',
+        website: this.querySelector('[name="website"]').value || 'Not provided',
+        social_media: this.querySelector('[name="socialMedia"]').value || 'Not provided',
+        
+        // Business Overview
+        start_date: this.querySelector('[name="startDate"]').value || 'Not specified',
+        business_challenges: this.querySelector('[name="businessChallenges"]').value || '',
+        specific_tasks: this.querySelector('[name="specificTasks"]').value || '',
+        va_experience: this.querySelector('input[name="vaExperience"]:checked')?.value || 'Not specified',
+        
+        // Services
+        services_interested: Array.from(this.querySelectorAll('input[name="services"]:checked'))
+          .map(cb => {
+            const value = cb.value;
+            const labels = {
+              'admin': 'Administrative Support',
+              'tech': 'Tech Systems & Automation',
+              'creative': 'Creative & Design Support',
+              'bilingual': 'Bilingual Communication (EN/FR)',
+              'web': 'Web Design & Development',
+              'other': 'Other'
+            };
+            return labels[value] || value;
+          })
+          .join(', ') || 'Not specified',
+        other_services: this.querySelector('#otherServices')?.value || 'None',
+        
+        // Support Details
+        hours_needed: this.querySelector('input[name="hours"]:checked')?.value || 'Not specified',
+        budget: this.querySelector('input[name="budget"]:checked')?.value || 'Not specified',
+        commitment: this.querySelector('input[name="commitment"]:checked')?.value || 'Not specified',
+        tools: this.querySelector('#tools').value || '',
+        additional_info: this.querySelector('#additionalInfo').value || 'None',
+        
+        // Metadata
+        form_type: 'detailed_inquiry',
+        current_language: currentLang,
+        to_email: 'synthiapro.va@gmail.com',
+        date: new Date().toLocaleString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZoneName: 'short'
+        }),
+        page_url: window.location.href,
+        user_agent: navigator.userAgent
+      };
+      
+      console.log('=== FORM DATA COLLECTED ===');
+      console.log('Form data:', formData);
+      
+      // Validate required fields
+      const requiredFields = ['first_name', 'last_name', 'email', 'business_name', 'business_challenges', 'specific_tasks'];
+      const missingFields = requiredFields.filter(field => !formData[field] || formData[field].trim() === '');
+      
+      if (missingFields.length > 0) {
+        throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+      }
+      
+      // Send email directly using EmailJS (simpler approach)
+      console.log('Sending email with template:', window.EmailJSHelper.EMAILJS_CONFIG.detailedTemplateId);
+      
+      const response = await emailjs.send(
+        window.EmailJSHelper.EMAILJS_CONFIG.serviceId,
+        window.EmailJSHelper.EMAILJS_CONFIG.detailedTemplateId,
+        formData
+      );
+      
+      console.log('Email sent successfully:', response);
+      
+      // Show success modal
+      window.EmailJSHelper.showEmailModal({
+        type: 'success',
+        title: currentLang === 'en'
+          ? '✅ Inquiry Submitted Successfully!'
+          : '✅ Demande envoyée avec succès !',
+        message: currentLang === 'en'
+          ? `Thank you ${formData.first_name}! I've received your detailed inquiry and will review it carefully. I'll contact you within 24-48 business hours.`
+          : `Merci ${formData.first_name} ! J'ai bien reçu votre demande détaillée et je l'examinerai attentivement. Je vous contacterai dans les 24 à 48 heures ouvrables.`,
+        onClose: () => {
+          detailedForm.reset();
+          if (otherGroup) otherGroup.style.display = 'none';
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1500);
+        }
+      });
+      
+    } catch (error) {
+      console.error('=== FORM SUBMISSION ERROR ===');
+      console.error('Error:', error);
+      
+      // Reset button
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      
+      // Show error message
+      const errorMessage = currentLang === 'en'
+        ? `Sorry, there was an error: ${error.message}. Please try again or email me directly at synthiapro.va@gmail.com.`
+        : `Désolé, une erreur est survenue: ${error.message}. Veuillez réessayer ou m'envoyer un email directement à synthiapro.va@gmail.com.`;
+      
+      // Use simple alert if EmailJSHelper not available
+      if (window.EmailJSHelper && window.EmailJSHelper.showEmailModal) {
+        window.EmailJSHelper.showEmailModal({
+          type: 'error',
+          title: currentLang === 'en' ? '❌ Submission Failed' : '❌ Échec de l\'envoi',
+          message: errorMessage,
+          autoClose: false
+        });
+      } else {
+        alert(errorMessage);
+      }
+    }
+  });
+}
+
+// ======================================================
+// TEST FUNCTION
+// ======================================================
+
+async function testInquiryForm() {
+  console.log('=== TESTING INQUIRY FORM ===');
+  
+  if (!window.EmailJSHelper || !window.EmailJSHelper.initEmailJS()) {
+    alert('EmailJS not initialized');
+    return;
+  }
+  
+  // Create test data matching your template
+  const testData = {
+    prefix: 'Ms.',
+    first_name: 'Test',
+    last_name: 'User',
+    email: 'synthiapro.va@gmail.com', // Send to yourself
+    phone: '+1234567890',
+    business_name: 'Test Business Inc.',
+    website: 'https://test.com',
+    social_media: 'Instagram: @testuser, LinkedIn: linkedin.com/in/test',
+    start_date: '2024-01-15',
+    business_challenges: 'This is a test of the detailed inquiry form.',
+    specific_tasks: 'Testing email sending functionality.',
+    va_experience: 'yes',
+    services_interested: 'Administrative Support, Tech Systems & Automation',
+    other_services: 'None',
+    hours_needed: '10-20 hours',
+    budget: '$1200–$1500',
+    commitment: 'yes',
+    tools: 'Google Workspace, Notion, Slack',
+    additional_info: 'This is a test submission from the inquiry page.',
+    form_type: 'test_inquiry',
+    current_language: 'en',
+    to_email: 'synthiapro.va@gmail.com',
+    date: new Date().toLocaleString(),
+    page_url: window.location.href
+  };
+  
+  try {
+    console.log('Sending test email with data:', testData);
+    
+    const response = await emailjs.send(
+      window.EmailJSHelper.EMAILJS_CONFIG.serviceId,
+      window.EmailJSHelper.EMAILJS_CONFIG.detailedTemplateId,
+      testData
+    );
+    
+    console.log('Test email sent successfully!', response);
+    alert('✅ Test email sent! Check your inbox and spam folder.');
+    
+  } catch (error) {
+    console.error('Test failed:', error);
+    alert('❌ Test failed: ' + error.message + '\n\nCheck console for details.');
+  }
+}
+
+// ======================================================
+// INITIALIZATION
+// ======================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Inquiry page loaded');
+  
+  // Set initial theme
+  const savedTheme = localStorage.getItem('synthia-theme') || 'light';
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.body.classList.remove('light-mode');
+  }
+  
+  // Set initial language
+  const savedLang = localStorage.getItem('synthia-lang') || 'en';
+  if (savedLang === 'fr') {
+    updateLanguage('fr');
+    
+    // Update French button text
+    const frenchBtn = document.querySelector('.french-alternative-btn span');
+    if (frenchBtn && frenchBtn.getAttribute('data-fr')) {
+      frenchBtn.textContent = frenchBtn.getAttribute('data-fr');
+    }
+  }
+  
+  // Initialize form
+  initDetailedInquiryForm();
+  
+  // Add theme toggle button
+  const themeToggle = document.createElement('button');
+  themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  themeToggle.className = 'control-btn';
+  themeToggle.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  `;
+  
+  themeToggle.onclick = () => {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+    
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('synthia-theme', isDarkMode ? 'dark' : 'light');
+    themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  };
+  
+  themeToggle.addEventListener('mouseenter', () => {
+    themeToggle.style.transform = 'scale(1.1)';
+  });
+  
+  themeToggle.addEventListener('mouseleave', () => {
+    themeToggle.style.transform = 'scale(1)';
+  });
+  
+  document.body.appendChild(themeToggle);
+  
+  // Add smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Navbar scroll effect
+  const navbar = document.querySelector('.inquiry-navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.style.background = 'var(--bg-glass)';
+        navbar.style.backdropFilter = 'blur(30px)';
+        navbar.style.borderBottom = '1px solid var(--glass-border)';
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.borderBottom = 'none';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+  }
+  
+  // For development/testing only
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    const testBtn = document.createElement('button');
+    testBtn.innerHTML = 'Test Email';
+    testBtn.title = 'Send a test email to check EmailJS setup';
+    testBtn.style.cssText = `
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10000;
+      font-size: 11px;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+    `;
+    
+    testBtn.addEventListener('mouseenter', () => {
+      testBtn.style.transform = 'translateY(-2px)';
+      testBtn.style.boxShadow = '0 4px 15px rgba(231, 76, 60, 0.4)';
+    });
+    
+    testBtn.addEventListener('mouseleave', () => {
+      testBtn.style.transform = 'translateY(0)';
+      testBtn.style.boxShadow = '0 2px 10px rgba(231, 76, 60, 0.3)';
+    });
+    
+    testBtn.onclick = testInquiryForm;
+    document.body.appendChild(testBtn);
+  }
+  
+  console.log('Inquiry page initialization complete');
+});
+</script>
+</body>
+</html>
