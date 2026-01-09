@@ -135,6 +135,69 @@ html {
   --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.4);
 }
 
+/* Responsive adjustments using dynamic navbar height */
+:root {
+  /* fallback if JS didn't run yet */
+  --navbar-height: 72px;
+  --navbar-gap: 12px; /* breathing room */
+}
+
+/* Ensure anchors and scrollIntoView stop below the navbar */
+html {
+  scroll-padding-top: calc(var(--navbar-height) + var(--navbar-gap));
+}
+
+/* Homepage hero adjustments (prevent hero content from overlapping navbar on small viewports) */
+@media (max-width: 1024px) {
+  .hero {
+    /* reduce fixed min-height on mobile so it doesn't push overlay awkwardly */
+    min-height: auto;
+    padding-top: calc(var(--navbar-height) + 20px);
+    padding-bottom: 48px;
+  }
+
+  /* Instead of absolute centering for the glass card, stack it naturally */
+  .hero-glass-container {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 92%;
+    max-width: 720px;
+    margin: calc(var(--navbar-height) + 18px) auto 32px auto;
+    height: auto;
+    min-height: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: block;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .hero-bg {
+    /* optionally hide or scale background image to save paint and avoid overlap */
+    height: 40vh;
+    min-height: 160px;
+    background-position: center top;
+  }
+}
+
+/* Stronger mobile rules for small phones */
+@media (max-width: 768px) {
+  .hero-glass-container {
+    padding: 18px;
+    margin-top: calc(var(--navbar-height) + 14px);
+    border-radius: 14px;
+  }
+
+  /* Reduce heavy visual effects on low widths for performance */
+  .hero-glass-container,
+  .hero-bg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -3710,6 +3773,25 @@ function logAncestors(el){
 const el = document.elementFromPoint(100,200); // replace with coordinates
 logAncestors(el);
 
+// Measure the visible navbar (home / inquiry) and set a CSS variable used for offsets.
+// Place this near the bottom (after DOM elements exist). It updates on resize.
+(function setNavbarHeightVar() {
+  function update() {
+    // prefer the inquiry navbar if present, else the site navbar header
+    const nav = document.querySelector('.inquiry-navbar') 
+              || document.querySelector('.navbar')
+              || document.querySelector('header');
+    if (!nav) return;
+    const rect = nav.getBoundingClientRect();
+    const height = Math.ceil(rect.height) || 64;
+    document.documentElement.style.setProperty('--navbar-height', height + 'px');
+  }
+  // Run now and on resize/orientation change
+  update();
+  window.addEventListener('load', update);
+  window.addEventListener('resize', update);
+  window.addEventListener('orientationchange', update);
+})();
 </script> 
 </body>
 </html>

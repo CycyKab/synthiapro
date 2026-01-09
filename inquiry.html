@@ -126,6 +126,77 @@ body {
   transition: background-color var(--duration-medium) ease, color var(--duration-medium) ease;
 }
 
+/* INQUIRY PAGE - make the inquiry hero and "thank you / rest" readable on mobile */
+.inquiry-hero {
+  /* ensure sufficient top padding for fixed inquiry-navbar */
+  padding-top: calc(var(--navbar-height) + 20px);
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+/* Make the glass panel stack and be readable on small screens */
+.inquiry-hero-glass {
+  margin-top: 6px;
+  padding: 20px;
+  width: 96%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+/* Reduce large paddings for the "thank you" area and subsequent sections */
+.inquiry-hero-glass .section,
+.inquiry-hero-glass .thank-you, /* if you have a thank-you class/id, target it */
+#thankyou, /* common ID if used */ 
+.inquiry-content-end {
+  padding-bottom: 18px;
+  padding-top: 12px;
+  font-size: 0.95rem;
+}
+
+/* INQUIRY NAVBAR: adjust fixed bar for small screens (avoid centering transform which may cause overlap) */
+.inquiry-navbar {
+  position: fixed;
+  top: 10px; /* keep a small top gap on most devices */
+  left: 50%;
+  transform: translateX(-50%); /* keeps centered on wide screens */
+  max-width: 1200px;
+  width: calc(100% - 24px);
+  box-sizing: border-box;
+  z-index: 1200;
+}
+
+/* On narrow screens, avoid translateX centering (translate with left 0) to avoid overflow issues */
+@media (max-width: 420px) {
+  .inquiry-navbar {
+    left: 12px;
+    right: 12px;
+    transform: none;
+    width: auto;
+    top: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* Ensure fixed navbars do not cover the first content */
+.page > :first-child,
+.page .section:first-of-type {
+  padding-top: calc(var(--navbar-height) + 12px);
+}
+
+/* Accessibility: ensure inputs and focusable elements are visible and not blocked */
+input, textarea, select, button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.08);
+}
+
+/* Optional: ensure any overlay hidden states do not capture pointer events */
+.overlay-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 /* ======================================================
    LUXURY MARQUEE STRIP
 ====================================================== */
