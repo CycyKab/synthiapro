@@ -939,6 +939,135 @@ input, textarea, select, button {
   opacity: 1;
 }
 .overlay-hidden { pointer-events: none !important; visibility: hidden !important; opacity: 0 !important; }
+
+/* Final CTA / thank-you styling – responsive & mobile-friendly */
+.form-final-cta {
+  width: 96%;
+  max-width: 920px;
+  margin: 16px auto;
+  box-sizing: border-box;
+}
+
+.final-cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+  padding: 8px 6px;
+}
+
+/* Paragraph text */
+.final-cta-text {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.45;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 6px;
+}
+
+/* Submit area */
+.final-cta-actions { width: 100%; display: flex; justify-content: center; }
+
+.submit-inquiry-btn {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, rgba(184,165,143,0.95), rgba(156,139,120,0.95));
+  border: 1px solid rgba(184,165,143,0.3);
+  color: var(--color-charcoal);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm, 0 4px 12px rgba(0,0,0,0.06));
+  z-index: 2;
+}
+
+/* Ensure submit is full-width on small screens */
+@media (max-width: 480px) {
+  .submit-inquiry-btn { width: 100%; min-width: 0; }
+}
+
+/* Language divider and buttons */
+.language-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 12px);
+  width: 100%;
+  max-width: 820px;
+  padding: 6px 0 0;
+  box-sizing: border-box;
+}
+
+.language-divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.language-label {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  padding: 0 10px;
+}
+
+.language-buttons {
+  display: flex;
+  gap: var(--spacing-md, 16px);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 4px;
+}
+
+/* Current language pill */
+.current-language {
+  background: var(--bg-glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md, 10px);
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* French alternative link */
+.french-alternative-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md, 10px);
+  text-decoration: none;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  background: transparent;
+}
+
+/* Final note */
+.form-note {
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+  margin: 4px 0 12px;
+  max-width: 820px;
+  padding: 0 6px;
+  text-align: center;
+}
+
+/* Ensure no overlay invisible element intercepts taps here */
+.form-final-cta,
+.form-final-cta * {
+  position: relative;
+  z-index: 1050;
+}
+
 </style>
 </head>
 <body class="light-mode">
@@ -1168,19 +1297,19 @@ input, textarea, select, button {
         
         <!-- Budget -->
         <div class="form-group">
-          <label data-en="My VA packages start at $1,200/month. What is your current budget for the services you're seeking?*" data-fr="Mes forfaits VA commencent à 1 200 $/mois. Quel est votre budget actuel pour les services que vous recherchez ?*">My VA packages start at $1,200/month. What is your current budget for the services you're seeking?*</label>
+          <label data-en="My VA packages start at $500/month. What is your current budget for the services you're seeking?*" data-fr="Mes forfaits VA commencent à 500 $/mois. Quel est votre budget actuel pour les services que vous recherchez ?*">My VA packages start at $500/month. What is your current budget for the services you're seeking?*</label>
           <div class="radio-group">
             <label class="radio-label">
-              <input type="radio" name="budget" value="under-1200" required>
-              <span data-en="Under $1,200" data-fr="Moins de 1 200 $">Under $1,200</span>
+              <input type="radio" name="budget" value="under-500" required>
+              <span data-en="Under $500" data-fr="Moins de 500 $">Under $500</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="budget" value="1200-1500" required>
-              <span data-en="$1,200–$1,500" data-fr="1 200 $ – 1 500 $">$1,200–$1,500</span>
+              <input type="radio" name="budget" value="500-1000" required>
+              <span data-en="$500–$1,000" data-fr="500 $ – 1 000 $">$500–$1,000</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="budget" value="1500-2000" required>
-              <span data-en="$1,500–$2,000" data-fr="1 500 $ – 2 000 $">$1,500–$2,000</span>
+              <input type="radio" name="budget" value="1000-2000" required>
+              <span data-en="$1,000–$2,000" data-fr="1 000 $ – 2 000 $">$1,000–$2,000</span>
             </label>
             <label class="radio-label">
               <input type="radio" name="budget" value="2000-plus" required>
@@ -1218,69 +1347,45 @@ input, textarea, select, button {
       
             <!-- FINAL CTA -->
       <div class="form-final-cta">
-        <div class="final-cta-content">
-          <p class="final-cta-text" data-en=" Thank you for taking the time to complete this inquiry. I look forward to learning more about your business and exploring how we can work together."
-             data-fr=" Merci d'avoir pris le temps de remplir cette demande. J'ai hâte d'en savoir plus sur votre entreprise et d'explorer comment nous pouvons travailler ensemble.">
-             Thank you for taking the time to complete this inquiry. I look forward to learning more about your business and exploring how we can work together.
-          </p>
-          
-          <!-- Main Submit Button -->
-          <button type="submit" class="submit-inquiry-btn">
-            <span data-en="Submit Inquiry" data-fr="Soumettre la Demande">Submit Inquiry</span>
-            <i class="fas fa-paper-plane"></i>
-          </button>
-          
-          <!-- French Language Option -->
-          <br class="language-option" style="margin-top: var(--spacing-lg); text-align: center;">
-            <div class="language-divider" style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
-              <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
-              <span style="color: var(--text-tertiary); font-size: 0.9rem;" data-en="Language Options" data-fr="Options de Langue">Language Options</span>
-              <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
-            </div>
-            
-            <div class="language-buttons" style="display: flex; gap: var(--spacing-md); justify-content: center; align-items: center;">
-              <!-- Current Language Button -->
-              <div class="current-language" style="
-                background: var(--bg-glass);
-                border: 1px solid var(--glass-border);
-                border-radius: var(--radius-md);
-                padding: var(--spacing-sm) var(--spacing-md);
-                display: flex;
-                align-items: center;
-                gap: var(--spacing-sm);
-                color: var(--text-primary);
-                font-weight: 500;
-                font-size: 0.95rem;
-              ">
-                <i class="fas fa-check-circle" style="color: var(--accent-gold); font-size: 0.9em;"></i>
-                <span class="current-lang-text" data-en="Filling in English" data-fr="Remplissage en Français">Filling in English</span>
-              </div>
-              
-              <!-- French Alternative Button -->
-              <a href="javascript:void(0);" class="french-alternative-btn" onclick="switchToFrenchVersion()" style="
-                display: inline-flex;
-                align-items: center;
-                gap: var(--spacing-sm);
-                background: transparent;
-                color: var(--text-secondary);
-                padding: var(--spacing-sm) var(--spacing-md);
-                border-radius: var(--radius-md);
-                text-decoration: none;
-                font-size: 0.9rem;
-                font-weight: 400;
-                border: 1px solid var(--border-light);
-                transition: all var(--duration-fast) ease;
-              ">
-                <i class="fas fa-exchange-alt" style="font-size: 0.8em; opacity: 0.7;"></i>
-                <span data-en="Prefer French?" data-fr="Préférez-vous l'anglais ?">Prefer French?</span>
-              </a>
-            </div>
-          </br>
-            <p class="form-note" data-en="You'll receive a confirmation email and a follow-up within 24–48 business hours." data-fr="Vous recevrez un email de confirmation et un suivi dans les 24 à 48 heures ouvrables.">
-              You'll receive a confirmation email and a follow-up within 24–48 business hours.
-            </p>
-        </div>
-        </div>
+  <div class="final-cta-content">
+    <p class="final-cta-text"
+       data-en="Thank you for taking the time to complete this inquiry. I look forward to learning more about your business and exploring how we can work together."
+       data-fr="Merci d'avoir pris le temps de remplir cette demande. J'ai hâte d'en savoir plus sur votre entreprise et d'explorer comment nous pouvons travailler ensemble.">
+      Thank you for taking the time to complete this inquiry. I look forward to learning more about your business and exploring how we can work together.
+    </p>
+
+    <!-- Main Submit Button: ensure this is INSIDE the form, or add form="inquiryForm" if outside -->
+    <div class="final-cta-actions">
+      <button type="submit" class="submit-inquiry-btn cta-button" aria-label="Submit Inquiry">
+        <span data-en="Submit Inquiry" data-fr="Soumettre la Demande">Submit Inquiry</span>
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Language divider and options -->
+    <div class="language-divider" aria-hidden="false">
+      <div class="line"></div>
+      <span class="language-label" data-en="Language Options" data-fr="Options de Langue">Language Options</span>
+      <div class="line"></div>
+    </div>
+
+    <div class="language-buttons">
+      <div class="current-language" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" style="color: var(--accent-gold); font-size: 0.9em;"></i>
+        <span class="current-lang-text" data-en="Filling in English" data-fr="Remplissage en Français">Filling in English</span>
+      </div>
+
+      <a href="javascript:void(0);" class="french-alternative-btn" onclick="switchToFrenchVersion()">
+        <i class="fas fa-exchange-alt" aria-hidden="true"></i>
+        <span data-en="Prefer French?" data-fr="Préférez-vous l'anglais ?">Prefer French?</span>
+      </a>
+    </div>
+
+    <p class="form-note" data-en="You'll receive a confirmation email and a follow-up within 24–48 business hours." data-fr="Vous recevrez un email de confirmation et un suivi dans les 24 à 48 heures ouvrables.">
+      You'll receive a confirmation email and a follow-up within 24–48 business hours.
+    </p>
+  </div>
+</div>
       </div>
     </form>
   </div>
