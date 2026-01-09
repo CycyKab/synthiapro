@@ -2164,6 +2164,67 @@ html.menu-open, body.menu-open {
   visibility: visible;
   opacity: 1;
 }
+
+/* HERO: force the glass card to flow and cap its height on tablet/phone */
+.hero {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: calc(var(--navbar-height, 72px) + 12px); /* ensure below navbar */
+}
+
+/* Replace/override any absolute-centered desktop rule on small screens */
+@media (max-width: 1024px) {
+  .hero-glass-container {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    width: 92% !important;
+    max-width: 720px !important;
+    margin: calc(var(--navbar-height,72px) + 12px) auto 24px auto !important;
+    padding: clamp(14px, 3vw, 28px) !important;
+    min-height: 180px !important;
+    height: auto !important;
+    max-height: 70vh !important; /* cap so it doesn't push under header/address bar */
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Keep inner area scrollable and readable */
+  .hero-glass-container .hero-glass-content {
+    padding: 0 !important;
+    width: 100%;
+    overflow-y: auto !important;
+  }
+
+  .hero-title { font-size: clamp(1.6rem, 6vw, 2.6rem) !important; }
+  .hero-subtitle { font-size: clamp(1rem, 3.5vw, 1.2rem) !important; }
+}
+
+/* Stronger cap for smaller phones */
+@media (max-width: 420px) {
+  .hero-glass-container {
+    max-height: 62vh !important;
+    min-height: 150px !important;
+    padding: 12px !important;
+    margin-top: calc(var(--navbar-height,64px) + 10px) !important;
+    border-radius: 12px !important;
+  }
+}
+/* Ensure hidden overlays do not capture taps */
+.mobile-nav, .quote-pup, .emailjs-modal {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.mobile-nav.active, .quote-pup.active, .emailjs-modal.show {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
+.overlay-hidden { pointer-events: none !important; visibility: hidden !important; opacity: 0 !important; }
 </style>
 </head>
 
@@ -3930,6 +3991,19 @@ logAncestors(el);
   window.addEventListener('resize', adjust);
   window.addEventListener('orientationchange', adjust);
 })();
+
+
+(function() {
+  function setVh(){ document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px'); }
+  function setNav(){ const n=document.querySelector('.inquiry-navbar')||document.querySelector('.navbar')||document.querySelector('header'); if(n) document.documentElement.style.setProperty('--navbar-height', Math.ceil(n.getBoundingClientRect().height)+'px'); }
+  setVh(); setNav();
+  window.addEventListener('resize', setVh);
+  window.addEventListener('orientationchange', setVh);
+  window.addEventListener('load', setNav);
+  window.addEventListener('resize', setNav);
+})();
+
+
 
 </script> 
 </body>
