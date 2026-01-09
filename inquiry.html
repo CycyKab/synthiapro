@@ -1068,6 +1068,38 @@ input, textarea, select, button {
   z-index: 1050;
 }
 
+
+.final-cta-content { display:block; text-align:center; max-width:920px; margin:0 auto; padding:0 8px; }
+.final-cta-text { display:block; margin:0 auto 8px; max-width:760px; white-space:normal; word-break:break-word; line-height:1.55; }
+
+#inquiryForm, #detailedInquiryForm { display:flex; flex-direction:column; gap:12px; }
+#inquiryForm input, #inquiryForm textarea, #detailedInquiryForm input, #detailedInquiryForm textarea { width:100%; box-sizing:border-box; min-width:0; }
+.submit-inquiry-btn { min-width:160px; padding:10px 18px; }
+@media (max-width:480px){ .submit-inquiry-btn{ width:100%; } .final-cta-text{ max-width:88vw; } }
+
+.mobile-nav, .quote-pup, .emailjs-modal { pointer-events:none; visibility:hidden; opacity:0; }
+.mobile-nav.active, .quote-pup.active, .emailjs-modal.show { pointer-events:auto; visibility:visible; opacity:1; }
+.overlay-hidden { pointer-events:none !important; visibility:hidden !important; opacity:0 !important; }
+
+@media (max-width:768px){ .hero-glass-container, .inquiry-hero-glass, .hero-bg { backdrop-filter:none !important; box-shadow:none !important; } }
+
+/* FINAL CTA overrides */
+.form-final-cta { width:96%; max-width:920px; margin:16px auto; box-sizing:border-box; text-align:center; }
+.final-cta-content{ display:block; text-align:center; max-width:920px; margin:0 auto; padding:0 8px; box-sizing:border-box; }
+.final-cta-text{ display:block; margin:0 auto 8px; max-width:760px; white-space:normal; word-break:break-word; hyphens:auto; line-height:1.55; font-size:1rem; }
+.final-cta-actions{ display:flex; justify-content:center; margin-top:8px; }
+.submit-inquiry-btn{ min-width:160px; padding:10px 18px; }
+@media (max-width:480px) { .submit-inquiry-btn{ width:100%; } .final-cta-text{ max-width:88vw; } }
+
+/* Ensure inputs are full width */
+#inquiryForm, #detailedInquiryForm{ display:flex; flex-direction:column; gap:12px; }
+#inquiryForm input, #inquiryForm textarea, #detailedInquiryForm input, #detailedInquiryForm textarea{ width:100%; box-sizing:border-box; min-width:0; }
+
+/* Overlay safety */
+.mobile-nav, .quote-pup, .emailjs-modal { pointer-events:none; visibility:hidden; opacity:0; }
+.mobile-nav.active, .quote-pup.active, .emailjs-modal.show { pointer-events:auto; visibility:visible; opacity:1; }
+
+
 </style>
 </head>
 <body class="light-mode">
