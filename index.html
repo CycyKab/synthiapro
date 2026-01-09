@@ -2,7 +2,8 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- put in <head> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- SEO -->
 <title>Synthia Pro | Bilingual Virtual Assistant</title>
@@ -84,7 +85,10 @@
   --duration-slow: 0.6s;
   --duration-medium: 0.4s;
   --duration-fast: 0.2s;
+  --marquee-height: 40px;
+  --navbar-height: 70px;
 }
+
 
 /* Dark Mode Luxury */
 .dark-mode {
@@ -124,7 +128,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--duration-medium) ease, color var(--duration-medium) ease;
 }
+body.menu-open {
+  overflow: hidden;
+}
 
+/* when menu is open add .menu-open to <html> or <body> */
+.menu-open {
+  position: fixed;        /* locks background on many browsers */
+  width: 100%;
+  overflow: hidden;
+}
+
+/* make menu container itself scrollable as above */
+.mobile-menu { overflow-y: auto; -webkit-overflow-scrolling: touch; max-height: 100dvh; }
 /* ======================================================
    LUXURY MARQUEE STRIP
 ====================================================== */
@@ -139,6 +155,8 @@ body {
   border-bottom: 1px solid rgba(184, 165, 143, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  height: var(--marquee-height);
+  line-height: var(--marquee-height);
 }
 
 .marquee-track {
@@ -174,7 +192,8 @@ body {
 ====================================================== */
 .navbar {
   position: fixed;
-  top: 40px;
+  top: var(--marquee-height);
+  height: var(--navbar-height);
   left: 50%;
   transform: translateX(-50%);
   width: 92%;
@@ -188,7 +207,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  z-index: 3000;
   box-shadow: var(--glass-shadow);
   transition: all var(--duration-medium) var(--ease-out);
   color: var(--accent-gold);
@@ -297,6 +316,7 @@ body {
   justify-content: center;
   padding-top: 140px; /* Augmenté pour laisser plus d'espace */
   overflow: hidden;
+  padding-top: calc(var(--marquee-height) + var(--navbar-height) + 40px);
 }
 
 .hero-bg {
@@ -452,6 +472,8 @@ body {
   opacity: 0;
   transform: translateX(100px);
   transition: all 1s var(--ease-spring);
+  position: relative;
+  isolation: isolate;
 }
 
 .page.active {
@@ -1119,10 +1141,26 @@ body {
   }
 }
 
+/* use as */
+.fullscreen {
+  height: calc(var(--vh, 1vh) * 100);
+}
 /* ======================================================
    MOBILE RESPONSIVE NAVBAR
 ====================================================== */
-
+/* Example mobile menu */
+.mobile-menu {
+  position: fixed;      /* keep visible */
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 9999;
+  max-height: 100dvh;            /* use dynamic vh if supported */
+  overflow-y: auto;              /* allow internal scroll */
+  -webkit-overflow-scrolling: touch; /* smooth/true native scroll on iOS */
+  -ms-overflow-style: auto;
+}
 /* Mobile Menu Toggle Button (caché sur desktop) */
 .mobile-menu-toggle {
   display: none; /* Caché sur desktop */
@@ -1156,7 +1194,7 @@ body {
   background: var(--bg-glass);
   backdrop-filter: blur(50px) saturate(200%);
   -webkit-backdrop-filter: blur(50px) saturate(200%);
-  z-index: 9999;
+  z-index: 3500;
   padding: var(--spacing-4xl) var(--spacing-xl);
   transform: translateX(100%);
   transition: transform 0.6s var(--ease-out);
@@ -1363,13 +1401,23 @@ body {
   
   /* Ajustements pour mobile */
   .hero {
-    padding-top: 100px;
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  .hero-bg {
+    position: absolute;
+    height: 100%;
   }
   
   .hero-glass-container {
-    height: 400px;
-    margin-top: 40px;
-    width: 95%;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    height: auto;
+    min-height: unset;
+    margin: 0 auto;
   }
   
   .hero-glass-content {
@@ -1557,7 +1605,7 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-lg);
-  z-index: 9999;
+  z-index: 4000;
   transform: translateY(100px) scale(0.95);
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1722,7 +1770,168 @@ button[disabled].cooldown-active::after {
   margin-bottom: -5px;
   z-index: 10001;
 }
+@media (max-width: 768px) {
+  section,
+  .section,
+  .page-content > * {
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+  }
+  .intro-section,
+  .card-grid,
+  .pricing-grid,
+  .process-container,
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  :root {
+    --spacing-3xl: 48px;
+    --spacing-4xl: 64px;
+    --navbar-height: 60px;
+  }
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .card {
+    order: 0;
+  }
+  .quote-pup,
+  .pup-trigger-btn {
+    position: fixed;
+    bottom: 20px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+
+  .page {
+    position: relative;
+    isolation: isolate;
+  }
+ .marquee-container {
+    position: fixed;
+    top: 0;
+    height: 28px;
+    padding: 0;
+    z-index: 3200;
+  }
+  .marquee-item {
+    font-size: 0.65rem;
+    padding: 0 24px;
+  }
+  .navbar {
+    top: 28px; /* exactement la hauteur de la marquee */
+    height: 60px;
+    padding: 8px 14px;
+    z-index: 3100;
+  }
+  .nav-brand {
+    font-size: 0.95rem;
+  }
+  .hero {
+    padding-top: 110px; /* marquee + navbar */
+    min-height: auto;
+  }
+  .hero-glass-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .hero-glass-content {
+    padding: 32px 20px;
+  }
+  .pup-trigger-btn {
+    bottom: 18px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+    z-index: 1800;
+  }
+  .quote-pup {
+    width: calc(100% - 32px);
+    left: 16px;
+    right: 16px;
+    bottom: 80px;
+    max-height: 70vh;
+    z-index: 2000;
+  }
+  #home .quote-pup,
+  #home .pup-trigger-btn,
+  #home .inquiry-cta-section,
+  #about .quote-pup,
+  #about .pup-trigger-btn,
+  #about .inquiry-cta-section {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-container { z-index: 3200; }
+  .navbar { z-index: 3100; }
+  .mobile-nav { z-index: 3500; }
+  .quote-pup { z-index: 2000; }
+  .pup-trigger-btn { z-index: 1800; }
+}
+
+/* Hide service-only UI outside services page */
+@media (max-width: 768px) {
+  #home .quote-pup,
+  #home .pup-trigger-btn,
+  #home .inquiry-cta-section,
+  #about .quote-pup,
+  #about .pup-trigger-btn,
+  #about .inquiry-cta-section {
+    display: none !important;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+#home {
+  overflow-x: hidden;
+}
+
+/* Body lock for mobile menu: avoids body overflow hidden (better for iOS) */
+html.menu-open, body.menu-open {
+  position: fixed;
+  left: 0;
+  right: 0;
+  /* top is set dynamically by JS to -scrollY value */
+  overflow: hidden !important;
+  width: 100%;
+}
+
+/* Prefer dynamic viewport units for overlays */
+.mobile-nav {
+  z-index: 10000; /* higher than pups */
+  max-height: 100dvh; /* modern browsers */
+  /* fallback using CSS var set by JS if needed */
+  max-height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Lower the pup z-index a bit so mobile nav stays on top */
+.quote-pup {
+  z-index: 9998;
+}
+
+/* Ensure menu container can scroll on iOS */
+.mobile-nav {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
 
 
 </style>
@@ -2354,6 +2563,7 @@ class LuxurySPA {
     }
   }
   
+  
 
   // ======================================================
   // SPRING PAGE TRANSITIONS
@@ -2569,123 +2779,96 @@ class LuxurySPA {
 // MOBILE NAVIGATION FUNCTIONS
 // ======================================================
 
+function lockBodyScroll() {
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  document.documentElement.dataset.scrollY = scrollY;
+  document.documentElement.classList.add('menu-open');
+  document.documentElement.style.top = `-${scrollY}px`;
+}
+
+function unlockBodyScroll() {
+  const scrollY = parseInt(document.documentElement.dataset.scrollY || '0', 10);
+  document.documentElement.classList.remove('menu-open');
+  document.documentElement.style.top = '';
+  window.scrollTo(0, scrollY);
+  delete document.documentElement.dataset.scrollY;
+}
+
 function initMobileNavigation() {
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const closeMobileMenu = document.getElementById('closeMobileMenu');
   const mobileNav = document.getElementById('mobileNav');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-  
-  console.log('Initializing mobile navigation...');
-  
-  // Toggle mobile menu
+
+  if (!mobileNav) {
+    console.error('mobileNav element not found');
+    return;
+  }
+
+  // Ensure mobileNav is a child of body so position:fixed behaves reliably.
+  if (mobileNav.parentElement !== document.body) {
+    document.body.appendChild(mobileNav);
+  }
+
+  // Open mobile menu
   if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', (e) => {
-      console.log('Hamburger clicked');
       e.stopPropagation();
       mobileNav.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      lockBodyScroll();
     });
-  } else {
-    console.error('mobileMenuToggle not found!');
   }
-  
+
   // Close mobile menu
   if (closeMobileMenu) {
     closeMobileMenu.addEventListener('click', (e) => {
       e.stopPropagation();
       mobileNav.classList.remove('active');
-      document.body.style.overflow = '';
+      unlockBodyScroll();
     });
   }
-  
-  // Close mobile menu when clicking on a link
+
+  // Close on link click (navigate) but allow scrolling inside menu
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
+      // If your SPA handles navigation, let it handle default behavior.
+      // Only close the menu after routing.
       mobileNav.classList.remove('active');
-      document.body.style.overflow = '';
-      
-      // Update active state
+      unlockBodyScroll();
+
+      // update active states and navigation as before
       mobileNavLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
-      
-      // Navigate to the page
       const target = link.getAttribute('href').substring(1);
-      console.log('Navigating to:', target);
-      
-      // Utiliser votre SPA existante
+
       if (window.spa && typeof window.spa.showPage === 'function') {
         window.spa.showPage(target);
       } else {
-        // Fallback simple
-        document.querySelectorAll('.page').forEach(page => {
-          page.classList.remove('active');
-        });
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
         const targetPage = document.getElementById(target);
-        if (targetPage) {
-          targetPage.classList.add('active');
-        }
-        
-        // Update desktop nav active state
-        document.querySelectorAll('.nav-link').forEach(navLink => {
-          navLink.classList.remove('active');
-          if (navLink.getAttribute('href') === `#${target}`) {
-            navLink.classList.add('active');
-          }
-        });
-        
+        if (targetPage) targetPage.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
   });
-  
-  // Close mobile menu when pressing Escape key
+
+  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
       mobileNav.classList.remove('active');
-      document.body.style.overflow = '';
+      unlockBodyScroll();
     }
   });
-  
+
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (mobileNav.classList.contains('active') && 
-        !mobileNav.contains(e.target) && 
+    if (mobileNav.classList.contains('active') &&
+        !mobileNav.contains(e.target) &&
         e.target !== mobileMenuToggle) {
       mobileNav.classList.remove('active');
-      document.body.style.overflow = '';
+      unlockBodyScroll();
     }
   });
-  
-  // Sync mobile toggle with desktop toggle
-  const desktopLangToggle = document.getElementById('langToggle');
-  const mobileLangToggle = document.getElementById('mobileLangToggle');
-  
-  if (desktopLangToggle && mobileLangToggle) {
-    // Sync initial state
-    mobileLangToggle.checked = desktopLangToggle.checked;
-    
-    // Sync from desktop to mobile
-    desktopLangToggle.addEventListener('change', () => {
-      mobileLangToggle.checked = desktopLangToggle.checked;
-    });
-    
-    // Sync from mobile to desktop
-    mobileLangToggle.addEventListener('change', () => {
-      desktopLangToggle.checked = mobileLangToggle.checked;
-      desktopLangToggle.dispatchEvent(new Event('change'));
-    });
-  }
-  
-  // Sync theme toggle
-  const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-  if (mobileThemeToggle) {
-    mobileThemeToggle.addEventListener('click', () => {
-      // Trigger theme toggle on desktop button
-      const desktopThemeToggle = document.getElementById('themeToggle');
-      if (desktopThemeToggle) desktopThemeToggle.click();
-    });
-  }
 }
 
 // ======================================================
@@ -3385,6 +3568,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
   console.log('All components initialized');
 });
+</script>
+<script>
+mobileMenuToggle.addEventListener("click", () => {
+  document.body.classList.add("menu-open");
+});
+
+closeMobileMenu.addEventListener("click", () => {
+  document.body.classList.remove("menu-open");
+});
+
+(function setVh() {
+  function updateVh() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  }
+  updateVh();
+  window.addEventListener('resize', updateVh);
+})();
 </script>
 </body>
 </html>
